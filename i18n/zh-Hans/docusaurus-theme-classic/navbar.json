@@ -1,0 +1,10 @@
+{
+  "title": {
+    "message": "Sonoff RPC API 文档",
+    "description": "The title in the navbar"
+  },
+  "item.label.文档": {
+    "message": "文档",
+    "description": "Navbar item with label 文档"
+  }
+}
