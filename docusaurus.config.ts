@@ -9,10 +9,7 @@ const config: Config = {
   tagline: 'Sonoff 设备 RPC API 接口参考文档',
   favicon: 'img/favicon.ico',
 
-  // GitHub Pages 部署配置
-  // 1. 将下面的 github-username 替换为你的 GitHub 用户名（如 alice）
-  // 2. 创建仓库 sonoff-rpc-api-docs，并把代码推送上去
-  // 3. 仓库 Settings → Pages → Source 选择 "GitHub Actions"
+  // GitHub Pages 部署配置：站点地址为 https://xwmdev.github.io/sonoff-rpc-api-docs/
   url: 'https://xwmdev.github.io',
   baseUrl: '/sonoff-rpc-api-docs/',
 
