@@ -3,13 +3,13 @@
     "message": "最新版",
     "description": "The label for version current"
   },
-  "sidebar.docs.category.通用协议": {
+  "sidebar.docs.category.通用说明": {
     "message": "General",
-    "description": "The label for category 通用协议 in sidebar docs"
+    "description": "The label for category 通用说明 in sidebar docs"
   },
-  "sidebar.docs.category.组件": {
-    "message": "Components",
-    "description": "The label for category 组件 in sidebar docs"
+  "sidebar.docs.category.组件与服务": {
+    "message": "Components & Services",
+    "description": "The label for category 组件与服务 in sidebar docs"
   },
   "sidebar.docs.category.设备": {
     "message": "Devices",
