@@ -3,7 +3,7 @@ slug: /
 sidebar_position: 1
 ---
 
-# Document Guide
+# Welcome!
 
 Welcome to the Sonoff Device RPC API Reference.
 
