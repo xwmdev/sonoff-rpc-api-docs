@@ -1,6 +1,6 @@
 # Sonoff RPC API 文档
 
-基于 [Docusaurus](https://docusaurus.io) 的 Sonoff 设备 RPC API 接口文档站点，支持**本地全文搜索、多语言（简体中文 / English）**。
+基于 [Docusaurus](https://docusaurus.io) 的 Sonoff 设备 RPC API 接口文档站点，支持**本地全文搜索、多语言（简体中文 / English）**、多版本。
 
 ## 环境要求
 
@@ -29,7 +29,6 @@ docs/                        # 文档（默认语言：简体中文），内容�
 ├── Devices/                 # 设备文档
 └── Changelog.md             # 变更记录
 i18n/en/                     # 英文翻译目录（与 docs/ 结构一一对应）
-input-docs/                  # 文档源（未转换的原始 md），转换后内容同步到 docs/ 与 i18n/
 docusaurus.config.ts         # 站点配置（多语言/搜索）
 sidebars.ts                  # 侧边栏配置
 ```
@@ -53,7 +52,7 @@ sidebars.ts                  # 侧边栏配置
    git add .
    git commit -m "init docs site"
    git branch -M main
-   git remote add origin https://github.com/<用户名>/sonoff-rpc-api-docs.git
+   git remote add origin git@github.com:<用户名>/sonoff-rpc-api-docs.git
    git push -u origin main
    ```
 

@@ -104,8 +104,8 @@ sidebar_position: 1
    "src": "sonoffmini1gsp-acebe61fae74",
    "dst": "user_1",
    "error": {
-      "code": -100,
-      "message": "any error"
+      "code": -12805,
+      "message": "internal error"
    }
 }
 ```

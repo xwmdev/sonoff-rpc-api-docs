@@ -83,11 +83,11 @@ The response content is the expanded content of the `status` data structure, as 
 | total_supply | number | Cumulative energy supply, unit 0.01 kWh |
 | day_energy | number | Daily forward energy consumption, unit 0.01 kWh |
 | day_supply | number | Daily energy supply, unit 0.01 kWh |
-| day_cost | number | Daily electricity cost |
+| day_cost | number | Daily electricity cost, unit 0.01 (smallest unit of configured currency, e.g., 0.01 CNY / 0.01 USD) |
 | day_run_time_sec | number | Daily runtime, unit seconds |
 | month_energy | number | Monthly forward energy consumption, unit 0.01 kWh |
 | month_supply | number | Monthly energy supply, unit 0.01 kWh |
-| month_cost | number | Monthly electricity cost |
+| month_cost | number | Monthly electricity cost, unit 0.01 (smallest unit of configured currency, e.g., 0.01 CNY / 0.01 USD) |
 | total_run_time_sec | number | Total runtime, unit seconds |
 
 
@@ -212,11 +212,11 @@ Data structures related to the Meter component.
 | total_supply | number | Cumulative energy supply, unit 0.01 kWh |
 | day_energy | number | Daily forward energy consumption, unit 0.01 kWh |
 | day_supply | number | Daily energy supply, unit 0.01 kWh |
-| day_cost | number | Daily electricity cost |
+| day_cost | number | Daily electricity cost, unit 0.01 (smallest unit of configured currency, e.g., 0.01 CNY / 0.01 USD) |
 | day_run_time_sec | number | Daily runtime, unit seconds |
 | month_energy | number | Monthly forward energy consumption, unit 0.01 kWh |
 | month_supply | number | Monthly energy supply, unit 0.01 kWh |
-| month_cost | number | Monthly electricity cost |
+| month_cost | number | Monthly electricity cost, unit 0.01 (smallest unit of configured currency, e.g., 0.01 CNY / 0.01 USD) |
 | total_run_time_sec | number | Total runtime, unit seconds |
 
 
@@ -227,7 +227,7 @@ Data structures related to the Meter component.
 | --- | --- | --- |
 | energy_unit | number | Unit energy consumption, unit 0.01 kWh |
 | supply_unit | number | Unit energy supply, unit 0.01 kWh |
-| cost_cent | number | Electricity cost, unit 0.01 |
+| cost_cent | number | Electricity cost, unit 0.01 (smallest unit of configured currency, e.g., 0.01 CNY / 0.01 USD) |
 
 
 
@@ -244,7 +244,7 @@ When the device's power status changes, a status notification is triggered. The 
 Examples of Meter component methods and status notifications.
 
 ### Meter.SetConfig Example
-Request to call the Meter.SetConfig method:
+**Request**
 
 ```json
 {
@@ -266,7 +266,7 @@ Request to call the Meter.SetConfig method:
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -277,22 +277,8 @@ Request to call the Meter.SetConfig method:
 }
 ```
 
-**Error Response**
-
-```json
-{
-  "id": 4,
-  "src": "sonoffmini1gsp-acebe61fae74",
-  "dst": "user_1",
-  "error": {
-    "code": -101,
-    "message": "Configuration parameter error"
-  }
-}
-```
-
 ### Meter.GetConfig Example
-Request to call the Meter.GetConfig method:
+**Request**
 
 ```json
 {
@@ -306,7 +292,7 @@ Request to call the Meter.GetConfig method:
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -334,22 +320,8 @@ Request to call the Meter.GetConfig method:
 }
 ```
 
-**Error Response**
-
-```json
-{
-  "id": 5,
-  "src": "sonoffmini1gsp-acebe61fae74",
-  "dst": "user_1",
-  "error": {
-    "code": -100,
-    "message": "Failed to get configuration"
-  }
-}
-```
-
 ### Meter.GetStatus Example
-Request to call the Meter.GetStatus method:
+**Request**
 
 ```json
 {
@@ -363,7 +335,7 @@ Request to call the Meter.GetStatus method:
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -390,22 +362,8 @@ Request to call the Meter.GetStatus method:
 }
 ```
 
-**Error Response**
-
-```json
-{
-  "id": 1,
-  "src": "sonoffmini1gsp-acebe61fae74",
-  "dst": "user_1",
-  "error": {
-    "code": -100,
-    "message": "Failed to get status"
-  }
-}
-```
-
 ### Meter.ResetCounters Example
-Request to call the Meter.ResetCounters method:
+**Request**
 
 ```json
 {
@@ -419,7 +377,7 @@ Request to call the Meter.ResetCounters method:
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -430,22 +388,8 @@ Request to call the Meter.ResetCounters method:
 }
 ```
 
-**Error Response**
-
-```json
-{
-  "id": 6,
-  "src": "sonoffmini1gsp-acebe61fae74",
-  "dst": "user_1",
-  "error": {
-    "code": -104,
-    "message": "Failed to reset counters"
-  }
-}
-```
-
 ### Meter.GetRecords Example
-Request to call the Meter.GetRecords method:
+**Request**
 
 ```json
 {
@@ -462,7 +406,7 @@ Request to call the Meter.GetRecords method:
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -479,22 +423,8 @@ Request to call the Meter.GetRecords method:
 }
 ```
 
-**Error Response**
-
-```json
-{
-  "id": 2,
-  "src": "sonoffmini1gsp-acebe61fae74",
-  "dst": "user_1",
-  "error": {
-    "code": -100,
-    "message": "Failed to get records"
-  }
-}
-```
-
 ### Meter.Download Example
-Request to call the Meter.Download method:
+**Request**
 
 ```json
 {
@@ -511,7 +441,7 @@ Request to call the Meter.Download method:
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -526,20 +456,6 @@ Request to call the Meter.Download method:
       [10, 0, 5],
       [12, 0, 6]
     ]
-  }
-}
-```
-
-**Error Response**
-
-```json
-{
-  "id": 3,
-  "src": "sonoffmini1gsp-acebe61fae74",
-  "dst": "user_1",
-  "error": {
-    "code": -100,
-    "message": "Failed to download historical data"
   }
 }
 ```

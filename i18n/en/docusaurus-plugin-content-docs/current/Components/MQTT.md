@@ -58,7 +58,7 @@ None.
 
 **Response**
 
-> **Compatibility Note:** The documentation only defines and recommends using `connected`. The actual content returned by the device may include additional fields, but other fields are not recommended for use and will be removed in future versions; use the corresponding component's configuration or status query methods for related configuration and status.
+> **Compatibility Note:** The device response may contain additional reserved fields not explicitly documented here. These fields are not part of the public interface specification and may be changed or removed in future firmware versions. Do not rely on them.
 
 | Property | Type | Description |
 | --- | --- | --- |
@@ -335,7 +335,7 @@ Setting up a plain MQTT connection:
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -375,7 +375,7 @@ Setting up a TLS MQTT connection with a custom CA:
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -410,7 +410,7 @@ Setting up a TLS MQTT connection with a custom CA:
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -434,7 +434,7 @@ Setting up a TLS MQTT connection with a custom CA:
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -466,7 +466,7 @@ Uploading a custom CA:
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -494,7 +494,7 @@ Deleting a custom CA:
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -522,7 +522,7 @@ Deleting a custom CA:
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -550,7 +550,7 @@ Deleting a custom CA:
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {

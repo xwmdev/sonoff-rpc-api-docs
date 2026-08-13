@@ -130,7 +130,7 @@ When the Matter component status changes, a status notification is triggered. Th
 
 | Property | Type | Description |
 | --- | --- | --- |
-| Matter | object | The Matter object's content is the fabric_list sub-object; see fabric_list for the detailed structure |
+| matter | object | The matter object's content is the fabric_list sub-object; see fabric_list for the detailed structure |
 
 
 

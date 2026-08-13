@@ -103,7 +103,7 @@ Examples of the WebSocket component methods and events.
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -127,7 +127,7 @@ Examples of the WebSocket component methods and events.
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -157,7 +157,7 @@ Examples of the WebSocket component methods and events.
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {

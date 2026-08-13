@@ -155,7 +155,7 @@ auth 字段内应包含以下几个参数：
 + `realm`：string，设备 ID（即 `<sonoff-id>`，如 `sonoffmini1gsp-acebe61fae74`）
 + `username`：string，固定为 `admin`
 + `nonce`：string，从服务端 401 错误信息中获取
-+ `cnonce`：string，客户端生成的随机数
++ `cnonce`：number，客户端生成的随机数
 + `nc`：number，客户端递增序号，参与拼接时转为十进制字符串（不补 0）
 + `response`：string，由 `{ha1}:{nonce}:{nc}:{cnonce}:auth:{ha2}` 构成的 SHA-256 加密结果
     + `ha1`：`SHA256(admin:<realm>:<密码>)`，见 [HA1 计算方法](#ha1-计算方法)

@@ -200,7 +200,7 @@ Examples of the Timer component methods and events.
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -236,7 +236,7 @@ Request template, only serves as an example for batch modifying timers. It inclu
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -497,7 +497,7 @@ Start querying from index 0, request:
 
 When all timers have been queried, the `next` field value is `-1`; otherwise it is the timer index for the next query.
 
-**Success Response**
+**Response**
 
 ```json
 {

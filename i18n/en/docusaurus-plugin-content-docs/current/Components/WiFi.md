@@ -212,7 +212,7 @@ Set STA to DHCP connection:
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -263,7 +263,7 @@ Set AP name, password, and open status with a password. This request will not mo
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -309,7 +309,7 @@ The `ap.enable` and `ap.auto_off` in the response are a complete echo of the dev
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -353,7 +353,7 @@ The `ap.enable` and `ap.auto_off` in the response are a complete echo of the dev
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -395,7 +395,7 @@ The `ap.enable` and `ap.auto_off` in the response are a complete echo of the dev
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -437,7 +437,7 @@ The `ap.enable` and `ap.auto_off` in the response are a complete echo of the dev
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -467,7 +467,7 @@ The `ap.enable` and `ap.auto_off` in the response are a complete echo of the dev
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {

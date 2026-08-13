@@ -83,11 +83,11 @@ Meter 组件支持的方法如下。
 | total_supply | number | 累计供电量，单位0.01kWh |
 | day_energy | number | 当日正向用电量，单位0.01kWh |
 | day_supply | number | 当日供电量，单位0.01kWh |
-| day_cost | number | 当日电费 |
+| day_cost | number | 当日电费，单位0.01（按配置货币的最小单位，例如0.01元/0.01美元） |
 | day_run_time_sec | number | 当日运行时长，单位秒 |
 | month_energy | number | 当月正向用电量，单位0.01kWh |
 | month_supply | number | 当月供电量，单位0.01kWh |
-| month_cost | number | 当月电费 |
+| month_cost | number | 当月电费，单位0.01（按配置货币的最小单位，例如0.01元/0.01美元） |
 | total_run_time_sec | number | 总运行时长，单位秒 |
 
 
@@ -212,11 +212,11 @@ Meter 组件相关的数据结构如下。
 | total_supply | number | 累计供电量，单位0.01kWh |
 | day_energy | number | 当日正向用电量，单位0.01kWh |
 | day_supply | number | 当日供电量，单位0.01kWh |
-| day_cost | number | 当日电费 |
+| day_cost | number | 当日电费，单位0.01（按配置货币的最小单位，例如0.01元/0.01美元） |
 | day_run_time_sec | number | 当日运行时长，单位秒 |
 | month_energy | number | 当月正向用电量，单位0.01kWh |
 | month_supply | number | 当月供电量，单位0.01kWh |
-| month_cost | number | 当月电费 |
+| month_cost | number | 当月电费，单位0.01（按配置货币的最小单位，例如0.01元/0.01美元） |
 | total_run_time_sec | number | 总运行时长，单位秒 |
 
 
@@ -227,7 +227,7 @@ Meter 组件相关的数据结构如下。
 | --- | --- | --- |
 | energy_unit | number | 单位用电量，单位0.01kWh |
 | supply_unit | number | 单位供电量，单位0.01kWh |
-| cost_cent | number | 电费，单位0.01 |
+| cost_cent | number | 电费，单位0.01（按配置货币的最小单位，例如0.01元/0.01美元） |
 
 
 
@@ -244,7 +244,7 @@ Meter 组件相关的数据结构如下。
 Meter 组件各方法及状态通知的示例。
 
 ### Meter.SetConfig 示例
-请求调用 Meter.SetConfig 方法：
+**请求**
 
 ```json
 {
@@ -266,7 +266,7 @@ Meter 组件各方法及状态通知的示例。
 }
 ```
 
-**响应成功**
+**响应**
 
 ```json
 {
@@ -277,22 +277,8 @@ Meter 组件各方法及状态通知的示例。
 }
 ```
 
-**响应失败**
-
-```json
-{
-  "id": 4,
-  "src": "sonoffmini1gsp-acebe61fae74",
-  "dst": "user_1",
-  "error": {
-    "code": -101,
-    "message": "配置参数错误"
-  }
-}
-```
-
 ### Meter.GetConfig 示例
-请求调用 Meter.GetConfig 方法：
+**请求**
 
 ```json
 {
@@ -306,7 +292,7 @@ Meter 组件各方法及状态通知的示例。
 }
 ```
 
-**响应成功**
+**响应**
 
 ```json
 {
@@ -334,22 +320,8 @@ Meter 组件各方法及状态通知的示例。
 }
 ```
 
-**响应失败**
-
-```json
-{
-  "id": 5,
-  "src": "sonoffmini1gsp-acebe61fae74",
-  "dst": "user_1",
-  "error": {
-    "code": -100,
-    "message": "获取配置失败"
-  }
-}
-```
-
 ### Meter.GetStatus 示例
-请求调用 Meter.GetStatus 方法：
+**请求**
 
 ```json
 {
@@ -363,7 +335,7 @@ Meter 组件各方法及状态通知的示例。
 }
 ```
 
-**响应成功**
+**响应**
 
 ```json
 {
@@ -390,22 +362,8 @@ Meter 组件各方法及状态通知的示例。
 }
 ```
 
-**响应失败**
-
-```json
-{
-  "id": 1,
-  "src": "sonoffmini1gsp-acebe61fae74",
-  "dst": "user_1",
-  "error": {
-    "code": -100,
-    "message": "获取状态失败"
-  }
-}
-```
-
 ### Meter.ResetCounters 示例
-请求调用 Meter.ResetCounters 方法：
+**请求**
 
 ```json
 {
@@ -419,7 +377,7 @@ Meter 组件各方法及状态通知的示例。
 }
 ```
 
-**响应成功**
+**响应**
 
 ```json
 {
@@ -430,22 +388,8 @@ Meter 组件各方法及状态通知的示例。
 }
 ```
 
-**响应失败**
-
-```json
-{
-  "id": 6,
-  "src": "sonoffmini1gsp-acebe61fae74",
-  "dst": "user_1",
-  "error": {
-    "code": -104,
-    "message": "复位计数器失败"
-  }
-}
-```
-
 ### Meter.GetRecords 示例
-请求调用 Meter.GetRecords 方法：
+**请求**
 
 ```json
 {
@@ -462,7 +406,7 @@ Meter 组件各方法及状态通知的示例。
 }
 ```
 
-**响应成功**
+**响应**
 
 ```json
 {
@@ -479,22 +423,8 @@ Meter 组件各方法及状态通知的示例。
 }
 ```
 
-**响应失败**
-
-```json
-{
-  "id": 2,
-  "src": "sonoffmini1gsp-acebe61fae74",
-  "dst": "user_1",
-  "error": {
-    "code": -100,
-    "message": "获取记录失败"
-  }
-}
-```
-
 ### Meter.Download 示例
-请求调用 Meter.Download 方法：
+**请求**
 
 ```json
 {
@@ -511,7 +441,7 @@ Meter 组件各方法及状态通知的示例。
 }
 ```
 
-**响应成功**
+**响应**
 
 ```json
 {
@@ -526,20 +456,6 @@ Meter 组件各方法及状态通知的示例。
       [10, 0, 5],
       [12, 0, 6]
     ]
-  }
-}
-```
-
-**响应失败**
-
-```json
-{
-  "id": 3,
-  "src": "sonoffmini1gsp-acebe61fae74",
-  "dst": "user_1",
-  "error": {
-    "code": -100,
-    "message": "下载历史数据失败"
   }
 }
 ```

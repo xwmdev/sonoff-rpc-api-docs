@@ -130,7 +130,7 @@ Matter 组件状态变化时，将触发状态通知。携带数据如下：
 
 | Property | Type | Description |
 | --- | --- | --- |
-| Matter | object | Matter对象内容为 fabric_list 子对象，详细结构请看 fabric_list |
+| matter | object | matter对象内容为 fabric_list 子对象，详细结构请看 fabric_list |
 
 
 

@@ -36,7 +36,7 @@ None.
 | auth_domain | string | Domain name. null when authentication is not enabled |
 | initial_password | boolean | Whether an initial password has been set:<br/> `true`: Password has been set.<br/> `false`: Password not set; password setup is required on first login. |
 
-Note: This method response contains other undocumented fields and their use is not recommended at this time.
+> **Compatibility Note:** The device response may contain additional reserved fields not explicitly documented here. These fields are not part of the public interface specification and may be changed or removed in future firmware versions. Do not rely on them.
 
 
 When no password has been set, all RPC requests, except for interfaces that do not require authentication, will return a `No password configured, access denied` error.

@@ -201,7 +201,7 @@ Request to start an OTA upgrade:
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -214,20 +214,6 @@ Request to start an OTA upgrade:
       "time": "02:00-04:00",
       "start": false
     }
-  }
-}
-```
-
-Error response example:
-
-```json
-{
-  "src": "sonoffmini1gsp-acebe61fae74",
-  "dst": "web",
-  "id": 25,
-  "error": {
-    "code": -32602,
-    "message": "no available update"
   }
 }
 ```
@@ -245,7 +231,7 @@ Error response example:
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
@@ -275,7 +261,7 @@ Error response example:
 }
 ```
 
-**Success Response**
+**Response**
 
 ```json
 {
