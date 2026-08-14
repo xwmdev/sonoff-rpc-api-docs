@@ -46,7 +46,7 @@ Example response:
     "id": 1,
     "result": {
         "name": "MINI-1GSP",
-        "model": "mini1gsp",
+        "model": "SN-ESP32C6-MINI1GSP-01",
         "id": "sonoffmini1gsp-acebe61fae74",
         "ver": "0.5.0",
         "ip": "192.168.1.100",
@@ -79,7 +79,7 @@ Call `Sonoff.SetAuth` to set a password. `user` is always `admin`, and `realm` i
 curl -X POST -d '{"id":2,"src":"user_1","method":"Sonoff.SetAuth","params":{"user":"admin","realm":"sonoffmini1gsp-acebe61fae74","ha1":"<computed ha1>"}}' http://${SONOFF}/rpc
 ```
 
-`ha1` is calculated as follows (see [Authentication](General/Authentication) for full details):
+`ha1` is calculated as follows (see [Authentication](General/Authentication.md) for full details):
 
 ```
 ha1 = SHA256(admin:<realm>:<password>)
@@ -116,11 +116,11 @@ websocat ws://${SONOFF}/rpc
 {"id":2, "src":"user_1", "method":"Sonoff.GetConfig", "auth": {"realm":"sonoffmini1gsp-acebe61fae74","username":"admin","nonce":"<nonce>","nc":1,"cnonce":<random>,"response":"<computed>","algorithm":"SHA-256"}}
 ```
 
-For the full calculation of the `auth` field, see [Authentication](General/Authentication).
+For the full calculation of the `auth` field, see [Authentication](General/Authentication.md).
 
 ## Next Steps
 
-- Learn the three frame structures (request, response, notification): [RPC Protocol](General/RPCProtocol)
-- Choose a communication method: [RPC Transport Channels](General/RPCChannels)
+- Learn the three frame structures (request, response, notification): [RPC Protocol](General/RPCProtocol.md)
+- Choose a communication method: [RPC Transport Channels](General/RPCChannels.md)
 - Look up component interfaces: component documentation under `Components/`
 - Check the component range supported by a device: `Devices/`

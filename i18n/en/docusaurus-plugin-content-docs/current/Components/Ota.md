@@ -1,3 +1,7 @@
+---
+sidebar_position: 11
+---
+
 # Ota
 
 The Ota component provides firmware update status query, automatic update schedule configuration, and OTA upgrade services.

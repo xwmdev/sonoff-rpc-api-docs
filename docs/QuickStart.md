@@ -46,7 +46,7 @@ curl -X POST -d '{"id":1,"src":"user_1","method":"Sonoff.GetDeviceInfo"}' http:/
     "id": 1,
     "result": {
         "name": "MINI-1GSP",
-        "model": "mini1gsp",
+        "model": "SN-ESP32C6-MINI1GSP-01",
         "id": "sonoffmini1gsp-acebe61fae74",
         "ver": "0.5.0",
         "ip": "192.168.1.100",
@@ -71,7 +71,7 @@ curl -X POST -d '{"id":1,"src":"user_1","method":"Sonoff.GetDeviceInfo"}' http:/
 ## 设置访问密码
 
 仅当上一步 `initial_password` 为 `false` 时执行。
-如果你之前已通过web端设置过密码，可以跳过此步。
+如果你之前已通过 Web 端设置过密码，可以跳过此步。
 
 调用 `Sonoff.SetAuth` 设置密码，`user` 固定为 `admin`，`realm` 为设备 ID：
 
@@ -79,7 +79,7 @@ curl -X POST -d '{"id":1,"src":"user_1","method":"Sonoff.GetDeviceInfo"}' http:/
 curl -X POST -d '{"id":2,"src":"user_1","method":"Sonoff.SetAuth","params":{"user":"admin","realm":"sonoffmini1gsp-acebe61fae74","ha1":"<计算得到的ha1>"}}' http://${SONOFF}/rpc
 ```
 
-`ha1` 按以下方式计算（完整说明见[认证](General/Authentication)）：
+`ha1` 按以下方式计算（完整说明见[认证](General/Authentication.md)）：
 
 ```
 ha1 = SHA256(admin:<realm>:<password>)
@@ -116,11 +116,11 @@ websocat ws://${SONOFF}/rpc
 {"id":2, "src":"user_1", "method":"Sonoff.GetConfig", "auth": {"realm":"sonoffmini1gsp-acebe61fae74","username":"admin","nonce":"<nonce>","nc":1,"cnonce":<随机数>,"response":"<计算结果>","algorithm":"SHA-256"}}
 ```
 
-`auth` 字段的完整计算方式见[认证](General/Authentication)。
+`auth` 字段的完整计算方式见[认证](General/Authentication.md)。
 
 ## 下一步
 
-- 了解请求、应答、通知三种帧结构：[RPC 协议](General/RPCProtocol)
-- 确定通信方式：[RPC 传输通道](General/RPCChannels)
+- 了解请求、应答、通知三种帧结构：[RPC 协议](General/RPCProtocol.md)
+- 确定通信方式：[RPC 传输通道](General/RPCChannels.md)
 - 查阅组件接口：`Components/` 下各组件文档
 - 确认设备支持的组件范围：`Devices/`

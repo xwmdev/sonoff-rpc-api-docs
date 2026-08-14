@@ -1,4 +1,8 @@
-﻿# Cloud
+---
+sidebar_position: 7
+---
+
+# Cloud
 
 Cloud 组件用于管理易微联云端连接，包括启用或禁用云端功能、查询云端在线状态以及扫码配对。
 
@@ -20,12 +24,12 @@ Cloud 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| enable | boolean | true: 开启云端连接<br/>false: 关闭云端连接 |
+| enable | boolean | 必填。true: 开启云端连接<br/>false: 关闭云端连接 |
 
 
 **响应**
 
-请参考应答帧。
+成功时返回空对象 `{}`（应答帧结构见 [RPC 协议](../General/RPCProtocol.md#应答帧)）。
 
 ### Cloud.GetConfig
 获取当前云端连接配置。

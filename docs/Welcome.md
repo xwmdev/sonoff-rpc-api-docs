@@ -42,14 +42,14 @@ sidebar_position: 1
 
 ### 占位符
 
-| Placeholder | Meaning | Example |
+| 占位符 | 含义 | 示例 |
 | --- | --- | --- |
 | `<component>` | 组件类型 | `cloud`、`wifi`、`switch` |
 | `<sonoff-id>` | 设备 ID，形如 `sonoffdevicemodel-XXXXXXXXXXXX` | `sonoffmini1gsp-acebe61fae74` |
 
 ### 环境变量
 
-| Variable | Meaning | Example |
+| 变量 | 含义 | 示例 |
 | --- | --- | --- |
 | ${SONOFF} | 设备 IP 地址 | `192.168.1.100` |
 | ${SONOFF_ID} | 设备 ID，形如 `sonoffdevicemodel-XXXXXXXXXXXX` | `sonoffmini1gsp-acebe61fae74` |

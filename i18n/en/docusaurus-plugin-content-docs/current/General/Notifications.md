@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Notifications
 
-Sonoff components support two types of notifications via the `NotifyStatus` and `NotifyEvent` methods. The structure of notification frames is described in detail on the [RPC Protocol](RPCProtocol#notification-frame) page. For more information about sending notifications over each channel, see the [RPC Channels](RPCChannels) page.
+Sonoff components support two types of notifications via the `NotifyStatus` and `NotifyEvent` methods. The structure of notification frames is described in detail on the [RPC Protocol](RPCProtocol.md#notification-frame) page. For more information about sending notifications over each channel, see the [RPC Channels](RPCChannels.md) page.
 
 Brief description:
 
@@ -21,8 +21,8 @@ This method is used to notify changes in component state, carrying the changed i
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `ts` | _number_ | Unix timestamp (UTC), in seconds |
-| `<component>` | _object_ | Same structure as the component state object. `<component>` should be replaced with the component type (e.g. `cloud`, `wifi`, `mqtt`). If there are multiple instances of this component type, `<component>` will be replaced with `component_type:id` (e.g. `switch:1`, `input:1`) |
+| `ts` | `number` | Unix timestamp (UTC), in seconds |
+| `<component>` | `object` | Same structure as the component state object. `<component>` should be replaced with the component type (e.g. `cloud`, `wifi`, `mqtt`). If there are multiple instances of this component type, `<component>` will be replaced with `component_type:id` (e.g. `switch:1`, `input:1`) |
 
 The intended use of these notifications is to overlay changes from `NotifyStatus` onto the known state; the result should be consistent with calling a fresh `GetStatus`.
 
@@ -74,16 +74,16 @@ This method is used to notify that an event has occurred which is not reflected 
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `ts` | _number_ | Unix timestamp (UTC), in seconds |
-| `events` | _array of objects_ | Contains all events that occurred. Each JSON object describes one event and contains different properties depending on the event type |
+| `ts` | `number` | Unix timestamp (UTC), in seconds |
+| `events` | `array of object` | Contains all events that occurred. Each JSON object describes one event and contains different properties depending on the event type |
 
 Each JSON object in the `events` array has the following common properties:
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `ts` | _number_ | Unix timestamp (UTC) when the event occurred, in seconds |
-| `component` | _string_ | Component key (`component_type[:id]`, e.g. `switch:1`, `input:1`, `cloud`) |
-| `event` | _string_ | Event name |
+| `ts` | `number` | Unix timestamp (UTC) when the event occurred, in seconds |
+| `component` | `string` | Component key (`component_type[:id]`, e.g. `switch:1`, `input:1`, `cloud`) |
+| `event` | `string` | Event name |
 
 Some events also contain an `id` field indicating the specific component instance.
 

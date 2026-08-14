@@ -1,4 +1,8 @@
-﻿# Meter
+---
+sidebar_position: 4
+---
+
+# Meter
 
 Meter 组件用于电量管理，支持配置更新与查询、实时电参数查询和电量历史数据获取。
 
@@ -26,13 +30,13 @@ Meter 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | 组件实例ID |
-| config | object | 配置参数对象。详见config数据结构 |
+| id | number | 必填。组件实例ID |
+| config | object | 必填。配置参数对象。详见config数据结构 |
 
 
 **响应**
 
-响应内容请参考应答帧。
+成功时返回空对象 `{}`（应答帧结构见 [RPC 协议](../General/RPCProtocol.md#应答帧)）。
 
 ### Meter.GetConfig
 获取电量计配置。
@@ -43,14 +47,14 @@ Meter 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | 组件实例ID |
+| id | number | 必填。组件实例ID |
 
 
 **响应**
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | 组件实例ID |
+| id | number | 必填。组件实例ID |
 | config | object | 配置参数对象。详见config数据结构 |
 
 
@@ -63,7 +67,7 @@ Meter 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | 组件实例ID |
+| id | number | 必填。组件实例ID |
 
 
 
@@ -74,7 +78,7 @@ Meter 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | 组件实例ID |
+| id | number | 必填。组件实例ID |
 | voltage | number | 上次测量的电压，单位V（伏特），精度0.01，真实数值*100 |
 | current | number | 上次测量的电流，单位A（安培），精度0.01，真实数值*100 |
 | power | number | 上次测量的瞬时有功功率，单位W（瓦），精度0.01，真实数值*100 |
@@ -100,14 +104,14 @@ Meter 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | 组件实例ID |
+| id | number | 必填。组件实例ID |
 
 
 
 
 **响应**
 
-响应内容请参考应答帧。
+成功时返回空对象 `{}`（应答帧结构见 [RPC 协议](../General/RPCProtocol.md#应答帧)）。
 
 ### Meter.GetRecords
 获取历史数据记录（按小时、天、月维度获取）。
@@ -118,7 +122,7 @@ Meter 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | 组件实例ID |
+| id | number | 必填。组件实例ID |
 | type | string | 记录类型。可选值：`hour`（小时维度）、`day`（天维度）、`month`（月维度） |
 | start_time | string | 开始日期。格式：`YYYY-MM-DD`（年-月-日）。<br/>- 当 `type` 为 `hour` 时，仅以 `start_time` 为准，返回该天的小时级用电量；<br/>- 当 `type` 为 `month` 时，会忽略日期中的天部分 |
 | end_time | string | 结束日期。格式：`YYYY-MM-DD`（年-月-日）。<br/>- 当 `type` 为 `hour` 时，仅以 `start_time` 为准，返回该天的小时级用电量；<br/>- 当 `type` 为 `month` 时，会忽略日期中的天部分 |
@@ -130,7 +134,7 @@ Meter 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | 组件实例ID |
+| id | number | 必填。组件实例ID |
 | records | array of object | 单位历史数据数组。详见records数据结构 |
 
 
@@ -143,7 +147,7 @@ Meter 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | 组件实例ID |
+| id | number | 必填。组件实例ID |
 | type | number | 下载类型。`0`：按小时单位下载，`1`：按天单位下载 |
 | offset | number | 起始索引（0表示从最新的记录开始） |
 | count | number | 请求数量，历史数据需要分包下载，最大一包不大于32 |
@@ -155,7 +159,7 @@ Meter 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | 组件实例ID |
+| id | number | 必填。组件实例ID |
 | next_offset | number | 下一次请求的起始索引（若已无更多数据，返回total_count） |
 | total_count | number | 总的历史数据数量 |
 | entries | array of array | 记录数组，每项为`[energy_unit, supply_unit, cost_cent]` |
@@ -169,7 +173,6 @@ Meter 组件相关的数据结构如下。
 ### config
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | 组件实例ID |
 | reversed | boolean | 反向计量数据显示开关。`true`：开启，`false`：关闭。默认关闭 |
 | price_info | object | 电价配置。详见price_info数据结构 |
 
@@ -203,7 +206,7 @@ Meter 组件相关的数据结构如下。
 ### status
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | 组件实例ID |
+| id | number | 必填。组件实例ID |
 | voltage | number | 上次测量的电压，单位V（伏特），精度0.01，真实数值*100 |
 | current | number | 上次测量的电流，单位A（安培），精度0.01，真实数值*100 |
 | power | number | 上次测量的瞬时有功功率，单位W（瓦），精度0.01，真实数值*100 |

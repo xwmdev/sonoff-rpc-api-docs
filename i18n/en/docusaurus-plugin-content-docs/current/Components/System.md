@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # System
 
 The System component provides functionalities such as device runtime status queries, time and timezone configuration, device reboot, and factory reset.
@@ -31,9 +35,9 @@ None.
 | --- | --- | --- |
 | reboot_reason | string | Reboot reason (only for battery-powered devices). Possible values: `poweron`, `software_restart`, `deepsleep_wake`, `internal`, `unknown` |
 | time | string | Current time, the device's local time. Format: `YYYY/MM/DD HH:MM:SS` |
-| unixtime | number | Unix timestamp (UTC), null when time has not been synced from an NTP server or not yet set |
+| unixtime | number or null | Unix timestamp (UTC), null when time has not been synced from an NTP server or not yet set |
 | timezone_info | object | Timezone-related information. See timezone_info for details |
-| last_sync_ts | number | Last time the system synced time from an NTP server (UTC), null when time has not been synced from an NTP server |
+| last_sync_ts | number or null | Last time the system synced time from an NTP server (UTC), null when time has not been synced from an NTP server |
 | uptime | number | Time since last reboot (seconds) |
 | flash_size | number | Flash size, unit: MB |
 | app_size | number | Firmware partition size, unit: KB |
@@ -65,12 +69,12 @@ Update system configuration.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| config | object | System configuration object. See config for details |
+| config | object | Required. System configuration object. See config for details |
 
 
 **Response**
 
-For the response content, please refer to the response frame.
+Returns an empty object `{}` on success (response frame structure: [RPC Protocol](../General/RPCProtocol.md#response-frame)).
 
 ### System.SetTime
 Set system time.
@@ -79,12 +83,12 @@ Set system time.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| unixtime | number | Unix timestamp (UTC), set to the current time, unit: seconds |
+| unixtime | number | Required. Unix timestamp (UTC), set to the current time, unit: seconds |
 
 
 **Response**
 
-For the response content, please refer to the response frame.
+Returns an empty object `{}` on success (response frame structure: [RPC Protocol](../General/RPCProtocol.md#response-frame)).
 
 Note: If the device obtains time from NTP, this setting will be overwritten.
 
@@ -95,13 +99,13 @@ Set timezone.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| timezone_id | string | Timezone string, e.g., `Asia/Shanghai` |
-| timezone_offset | number or null | Timezone offset, unit: minutes, a positive or negative integer, range: [-720, 840]. When this field is null, the device queries the actual timezone information from the network based on timezone_id. |
+| timezone_id | string | Required. Timezone string, e.g., `Asia/Shanghai` |
+| timezone_offset | number or null | Optional. Timezone offset, unit: minutes, a positive or negative integer, range: [-720, 840]. When this field is null, the device queries the actual timezone information from the network based on timezone_id. |
 
 
 **Response**
 
-For the response content, please refer to the response frame.
+Returns an empty object `{}` on success (response frame structure: [RPC Protocol](../General/RPCProtocol.md#response-frame)).
 
 ### System.GetTimeZone
 Get timezone information.
@@ -110,7 +114,7 @@ Get timezone information.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| timezone_id | string | Timezone string, e.g., `Asia/Shanghai`. Use an empty string when the device should auto-detect. |
+| timezone_id | string | Required. Timezone string, e.g., `Asia/Shanghai`. Use an empty string when the device should auto-detect. |
 
 
 **Response**
@@ -124,12 +128,12 @@ System control.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| action | string | Control action. Possible values: `reboot` (system reboot), `factory_reset` (factory reset) |
+| action | string | Required. Control action. Possible values: `reboot` (system reboot), `factory_reset` (factory reset) |
 
 
 **Response**
 
-For the response content, please refer to the response frame.
+Returns an empty object `{}` on success (response frame structure: [RPC Protocol](../General/RPCProtocol.md#response-frame)).
 
 
 

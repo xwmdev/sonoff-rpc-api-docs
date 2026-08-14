@@ -1,4 +1,8 @@
-﻿# WebSocket
+---
+sidebar_position: 9
+---
+
+# WebSocket
 
 WebSocket 组件用于控制出站 WebSocket 的启用、禁用，以及获取出站 WebSocket 的连接状态。
 
@@ -19,14 +23,14 @@ WebSocket 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| config | object | 配置参数 |
+| config | object | 必填。配置参数 |
 
 
 更多关于 `config` 属性的内容，请参阅 `config` 数据结构。
 
 **响应**
 
-请参考应答帧。
+成功时返回空对象 `{}`（应答帧结构见 [RPC 协议](../General/RPCProtocol.md#应答帧)）。
 
 ### WebSocket.GetConfig
 获取 WebSocket 组件配置。

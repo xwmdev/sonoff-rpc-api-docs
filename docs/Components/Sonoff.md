@@ -1,4 +1,8 @@
-﻿# Sonoff
+---
+sidebar_position: 2
+---
+
+# Sonoff
 
 Sonoff 组件为所有设备通用，用于设备管理。
 
@@ -48,12 +52,12 @@ Sonoff 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| config | object | 设备配置对象。详见config |
+| config | object | 必填。设备配置对象。详见config |
 
 
 **响应**
 
-响应内容请参考应答帧。
+成功时返回空对象 `{}`（应答帧结构见 [RPC 协议](../General/RPCProtocol.md#应答帧)）。
 
 ### Sonoff.GetConfig
 获取设备配置。
@@ -76,14 +80,14 @@ Sonoff 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| user | string | 用户名。固定为：`admin` |
-| realm | string | 设备ID。使用Sonoff.GetDeviceInfo方法获取到的id字段 |
-| ha1 | string or null | `"user:realm:password"`编码为SHA256。 |
+| user | string | 必填。用户名。固定为：`admin` |
+| realm | string | 必填。设备ID。使用Sonoff.GetDeviceInfo方法获取到的id字段 |
+| ha1 | string or null | 必填。`"user:realm:password"`编码为SHA256。 |
 
 
 **响应**
 
-响应内容请参考应答帧。
+成功时返回空对象 `{}`（应答帧结构见 [RPC 协议](../General/RPCProtocol.md#应答帧)）。
 
 ### Sonoff.ReSetAuth
 重置认证参数（重设密码）。
@@ -96,14 +100,14 @@ Sonoff 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| user | string | 用户名。固定为：`admin` |
+| user | string | 必填。用户名。固定为：`admin` |
 | realm | string | 设备ID |
-| ha1 | string | `"user:realm:password"`编码为SHA256。 |
+| ha1 | string | 必填。`"user:realm:password"`编码为SHA256。 |
 
 
 **响应**
 
-响应内容请参考应答帧。
+成功时返回空对象 `{}`（应答帧结构见 [RPC 协议](../General/RPCProtocol.md#应答帧)）。
 
 ### Sonoff.ForgetAuth
 忘记密码（需要物理操作确权）。
@@ -114,12 +118,12 @@ Sonoff 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| state | string |  waiting，表示等待双击确认修改密码<br/> done 表示结束。超时时间为设备固定值10秒，不可配置。 |
+| state | string | 必填。`waiting`：表示等待双击确认修改密码<br/>`done`：表示结束。超时时间为设备固定值10秒，不可配置。 |
 
 
 **响应**
 
-响应内容请参考应答帧。
+成功时返回空对象 `{}`（应答帧结构见 [RPC 协议](../General/RPCProtocol.md#应答帧)）。
 
 **操作流程说明**
 
@@ -177,12 +181,12 @@ Sonoff 组件各方法与事件的示例。
     "name": "MINI-1GSP",
     "model": "SN-ESP32C6-MINI1GSP-01",
     "id": "sonoffmini1gsp-acebe61fae74",
-    "ver": "0.0.1",
-    "ip": "192.168.50.15",
+    "ver": "0.5.0",
+    "ip": "192.168.1.100",
     "mac": "ac:eb:e6:1f:ae:74",
     "auth_en": false,
     "auth_domain": null,
-    "initial_password":false
+    "initial_password": false
   }
 }
 ```

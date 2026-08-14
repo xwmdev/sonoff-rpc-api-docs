@@ -13,13 +13,13 @@ Status contains all runtime characteristics of a component. To obtain a componen
 The `<ComponentName>.GetStatus` method returns an object specific to the selected component. If there are multiple instances of the component in the device, an `id` parameter is required. Otherwise, `<ComponentName>.GetStatus` takes no parameters. For example, to get the status of the Switch instance with `id=1`:
 
 ```
-curl -X POST -d '{"id":1, "method":"Switch.GetStatus", "params":{"id":1}}' http://${SONOFF}/rpc
+curl -X POST -d '{"id":1, "src":"user_1", "method":"Switch.GetStatus", "params":{"id":1}}' http://${SONOFF}/rpc
 ```
 
 For components with only a single instance (e.g. Cloud), the request frame does not require an `id` parameter:
 
 ```
-curl -X POST -d '{"id":1, "method":"Cloud.GetStatus"}' http://${SONOFF}/rpc
+curl -X POST -d '{"id":1, "src":"user_1", "method":"Cloud.GetStatus"}' http://${SONOFF}/rpc
 ```
 
 ## Configuration
@@ -31,7 +31,7 @@ Configuration contains all the configuration parameters of a component. Use **`<
 Similar to `<ComponentName>.GetStatus`, if there are multiple component instances in the device, `<ComponentName>.GetConfig` requires an `id` parameter. Otherwise, no parameters are needed. The response will contain the configuration structure.
 
 ```
-curl -X POST -d '{"id":1, "method":"Switch.GetConfig", "params":{"id":1}}' http://${SONOFF}/rpc
+curl -X POST -d '{"id":1, "src":"user_1", "method":"Switch.GetConfig", "params":{"id":1}}' http://${SONOFF}/rpc
 ```
 
 ### `<ComponentName>.SetConfig`
@@ -41,5 +41,5 @@ A component's configuration can be set via the **`<ComponentName>.SetConfig`** m
 Set the power-on behavior of the Switch component with id=1 to stay-on:
 
 ```
-curl -X POST -d '{"id":1, "method":"Switch.SetConfig", "params":{"id":1, "config":{"startup":{"startup":"stay"}}}}' http://${SONOFF}/rpc
+curl -X POST -d '{"id":1, "src":"user_1", "method":"Switch.SetConfig", "params":{"id":1, "config":{"startup":{"startup":"stay"}}}}' http://${SONOFF}/rpc
 ```

@@ -31,11 +31,11 @@ sidebar_position: 1
 
 | 属性 | 类型 | 描述 |
 | --- | --- | --- |
-| `jsonrpc` | _string_ | _2.0_。使用的 jsonrpc 版本。**可省略** |
-| `id` | _number 或 string_ | 此请求的标识符，用于匹配应答帧。**必需** |
-| `src` | _string_ | 请求来源的名称（你可以选择任意字符串来标识自己作为请求来源）。**必需** |
-| `method` | _string_ | 要调用的过程名称。**必需** |
-| `params` | _object_ | 方法所需的参数（如有）。**可选** |
+| `jsonrpc` | `string` | `2.0`。使用的 jsonrpc 版本。**可省略** |
+| `id` | `number or string` | 此请求的标识符，用于匹配应答帧。**必需** |
+| `src` | `string` | 请求来源的名称（你可以选择任意字符串来标识自己作为请求来源）。**必需** |
+| `method` | `string` | 要调用的过程名称。**必需** |
+| `params` | `object` | 方法所需的参数（如有）。**可选** |
 
 示例 1：
 
@@ -75,11 +75,11 @@ sidebar_position: 1
 
 | 属性 | 类型 | 描述 |
 | --- | --- | --- |
-| `id` | _number 或 string_ | 通信的标识符 |
-| `src` | _string_ | 应答来源的名称 |
-| `dst` | _string_ | 目标名称（即请求的来源） |
-| `result` | _object_ | 调用过程的结果，请求成功时返回。`result` 与 `error` 互斥 |
-| `error` | _object_ | 包含所发生错误的描述，请求失败时返回。`result` 与 `error` 互斥。更多错误码参见[通用错误码](ErrorCode) |
+| `id` | `number or string` | 通信的标识符 |
+| `src` | `string` | 应答来源的名称 |
+| `dst` | `string` | 目标名称（即请求的来源） |
+| `result` | `object` | 调用过程的结果，请求成功时返回。`result` 与 `error` 互斥 |
+| `error` | `object` | 包含所发生错误的描述，请求失败时返回。`result` 与 `error` 互斥。更多错误码参见[通用错误码](ErrorCode.md) |
 
 示例 1：
 
@@ -116,10 +116,10 @@ sidebar_position: 1
 
 | 属性 | 类型 | 描述 |
 | --- | --- | --- |
-| `src` | _string_ | 通知来源的名称。**必需** |
-| `dst` | _string_ | 目标名称。**必需** |
-| `method` | _string_ | 调用的方法。**必需** |
-| `params` | _object_ | 通知的参数。**必需** |
+| `src` | `string` | 通知来源的名称。**必需** |
+| `dst` | `string` | 目标名称。**必需** |
+| `method` | `string` | 调用的方法。**必需** |
+| `params` | `object` | 通知的参数。**必需** |
 
 示例 1：
 

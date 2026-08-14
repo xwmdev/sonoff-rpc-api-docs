@@ -1,4 +1,8 @@
-﻿# System
+---
+sidebar_position: 1
+---
+
+# System
 
 System 组件提供设备运行状态查询、时间与时区配置、设备重启和恢复出厂设置等功能。
 
@@ -31,9 +35,9 @@ System 组件支持的方法如下。
 | --- | --- | --- |
 | reboot_reason | string | 重启原因（仅针对电池供电设备）。可选值：`poweron`、`software_restart`、`deepsleep_wake`、`internal`、`unknown` |
 | time | string | 当前时间，为设备的本地时间。格式：`YYYY/MM/DD HH:MM:SS` |
-| unixtime | number | Unix时间戳（UTC），当时间未从NTP服务器同步时或未设置时为null |
+| unixtime | number or null | Unix时间戳（UTC），当时间未从NTP服务器同步时或未设置时为null |
 | timezone_info | object | 时区相关的信息。详见timezone_info |
-| last_sync_ts | number | 上次系统从NTP服务器同步的时间（UTC），当未从NTP服务器同步时间时为null |
+| last_sync_ts | number or null | 上次系统从NTP服务器同步的时间（UTC），当未从NTP服务器同步时间时为null |
 | uptime | number | 自上次重新启动以来的时间（秒） |
 | flash_size | number | Flash大小，单位MB |
 | app_size | number | 固件分区大小，单位KB |
@@ -65,12 +69,12 @@ System 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| config | object | 系统配置对象。详见config |
+| config | object | 必填。系统配置对象。详见config |
 
 
 **响应**
 
-响应内容请参考应答帧。
+成功时返回空对象 `{}`（应答帧结构见 [RPC 协议](../General/RPCProtocol.md#应答帧)）。
 
 ### System.SetTime
 设置系统时间。
@@ -79,12 +83,12 @@ System 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| unixtime | number | Unix时间戳（UTC），设置为当前时间，单位为秒 |
+| unixtime | number | 必填。Unix时间戳（UTC），设置为当前时间，单位为秒 |
 
 
 **响应**
 
-响应内容请参考应答帧。
+成功时返回空对象 `{}`（应答帧结构见 [RPC 协议](../General/RPCProtocol.md#应答帧)）。
 
 注意：如果设备从 NTP 获取时间，该设置将被覆盖。
 
@@ -95,13 +99,13 @@ System 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| timezone_id | string | 时区字符串，例如 `Asia/Shanghai` |
-| timezone_offset | number or null | 时区偏移量，单位分钟，值为正负整数，取值范围为 [-720, 840]。当该字段为 null 时，由设备根据 timezone_id 从网络中查询实际时区信息。 |
+| timezone_id | string | 必填。时区字符串，例如 `Asia/Shanghai` |
+| timezone_offset | number or null | 可选。时区偏移量，单位分钟，值为正负整数，取值范围为 [-720, 840]。当该字段为 null 时，由设备根据 timezone_id 从网络中查询实际时区信息。 |
 
 
 **响应**
 
-响应内容请参考应答帧。
+成功时返回空对象 `{}`（应答帧结构见 [RPC 协议](../General/RPCProtocol.md#应答帧)）。
 
 ### System.GetTimeZone
 获取时区信息。
@@ -110,7 +114,7 @@ System 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| timezone_id | string | 时区字符串，例如 `Asia/Shanghai`，当需要设备自动检测时，使用空字符串 |
+| timezone_id | string | 必填。时区字符串，例如 `Asia/Shanghai`，当需要设备自动检测时，使用空字符串 |
 
 
 **响应**
@@ -124,12 +128,12 @@ System 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| action | string | 控制动作。可选值：`reboot`（系统重启）、`factory_reset`（恢复出厂配置） |
+| action | string | 必填。控制动作。可选值：`reboot`（系统重启）、`factory_reset`（恢复出厂配置） |
 
 
 **响应**
 
-响应内容请参考应答帧。
+成功时返回空对象 `{}`（应答帧结构见 [RPC 协议](../General/RPCProtocol.md#应答帧)）。
 
 
 

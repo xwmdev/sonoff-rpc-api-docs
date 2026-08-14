@@ -1,4 +1,8 @@
-﻿# Matter
+---
+sidebar_position: 12
+---
+
+# Matter
 
 Matter 组件用于管理 Matter 配网与 Fabric，包括查询配对状态、获取配对码、移除 Fabric 和打开配对窗口。
 
@@ -50,14 +54,14 @@ Matter 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| fabric_list | array | 需要删除的matter fabric列表 |
+| fabric_list | array | 必填。需要删除的matter fabric列表 |
 
 
 更多关于 `fabric_list` 属性的内容，请参阅 `fabric_list` 数据结构。
 
 **响应**
 
-响应内容请参考应答帧。
+成功时返回空对象 `{}`（应答帧结构见 [RPC 协议](../General/RPCProtocol.md#应答帧)）。
 
 
 
@@ -66,7 +70,7 @@ Matter 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| mode | string | 配对模式<br/>`BCM`（Basic Commissioning Mode，基础配网模式）：打开 Matter 配网窗口。 |
+| mode | string | 必填。配对模式<br/>`BCM`（Basic Commissioning Mode，基础配网模式）：打开 Matter 配网窗口。 |
 
 > **BCM 概念说明：**
 >
@@ -82,7 +86,7 @@ Matter 组件支持的方法如下。
 
 **响应**
 
-响应内容请参考应答帧。
+成功时返回空对象 `{}`（应答帧结构见 [RPC 协议](../General/RPCProtocol.md#应答帧)）。
 
 
 
@@ -99,7 +103,7 @@ Matter 组件相关的数据结构如下。
 | max_fabrics | number | 设备支持matter fabric最大数量 |
 | num_fabrics | number | 设备已经加入的matter fabric数量 |
 | commissionable | boolean | true:  设备可以被加入到已存在的fabric<br/>false: 设备已经加入fabric，或者matter配网窗口因为超时而关闭，或者设备在添加到fabric之前需要重启。 |
-| fabric_list | object | 已经加入的matter fabric列表 |
+| fabric_list | array | 已经加入的matter fabric列表 |
 
 
 更多关于 `fabric_list` 属性的内容，请参阅 `fabric_list` 数据结构。
@@ -130,7 +134,7 @@ Matter 组件状态变化时，将触发状态通知。携带数据如下：
 
 | Property | Type | Description |
 | --- | --- | --- |
-| matter | object | matter对象内容为 fabric_list 子对象，详细结构请看 fabric_list |
+| matter | object | matter对象内容为 fabric_list 子数组，详细结构请看 fabric_list |
 
 
 
@@ -290,23 +294,23 @@ Matter 组件各方法与事件的示例。
 
 #### 状态通知 示例
 ```json
-{   
-"src": "sonoffmini1gsp-acebe61fae74",   
-"dst": "user_1",   
-"method": "NotifyStatus",   
-"params": {      
-  "ts": 1626221112,      
-  "matter": {         
-     "fabric_list":[
-        {
-          "compressed_fabric_id":"2906C488DDE90E01",
-          "vendor_id":"4742",
-          "label":"switch",
-          "create_at":"0123456789123"
-        }
-      ]
-  }   
-}
+{
+   "src": "sonoffmini1gsp-acebe61fae74",
+   "dst": "user_1",
+   "method": "NotifyStatus",
+   "params": {
+      "ts": 1626221112,
+      "matter": {
+         "fabric_list": [
+            {
+               "compressed_fabric_id": "2906C488DDE90E01",
+               "vendor_id": "4742",
+               "label": "switch",
+               "create_at": "0123456789123"
+            }
+         ]
+      }
+   }
 }
 ```
 

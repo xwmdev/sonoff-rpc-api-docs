@@ -23,13 +23,13 @@ Authentication is not required in the following cases:
 
 ## Setting a Password
 
-When using the device for the first time (login password not yet configured), you must first set a password via [Sonoff.SetAuth](../Components/Sonoff#sonoffsetauth). The process is as follows:
+When using the device for the first time (login password not yet configured), you must first set a password via [Sonoff.SetAuth](../Components/Sonoff.md#sonoffsetauth). The process is as follows:
 
-1. Call [Sonoff.GetDeviceInfo](../Components/Sonoff#sonoffgetdeviceinfo) to obtain device information, and check the `initial_password` field:
+1. Call [Sonoff.GetDeviceInfo](../Components/Sonoff.md#sonoffgetdeviceinfo) to obtain device information, and check the `initial_password` field:
    + `false`: Password not yet set, proceed to step 2
    + `true`: Password already set, proceed directly to [Authentication Flow](#authentication-flow)
 
-2. Call [Sonoff.SetAuth](../Components/Sonoff#sonoffsetauth) to set the password, passing parameters:
+2. Call [Sonoff.SetAuth](../Components/Sonoff.md#sonoffsetauth) to set the password, passing parameters:
    + `user`: fixed to `admin`
    + `realm`: device ID, obtained from step 1
    + `ha1`: `SHA256(admin:<device ID>:<password>)`, see [HA1 Calculation](#ha1-calculation) for the calculation method
@@ -108,7 +108,7 @@ curl -X POST -d '{"id":1,"src":"user_1","method":"Sonoff.GetConfig"}' \
 }
 ```
 
-> Tip: The `password` in `--digest` is the password set via [Sonoff.SetAuth](../Components/Sonoff#sonoffsetauth). curl will automatically complete the 401 challenge-response flow and retry the request.
+> Tip: The `password` in `--digest` is the password set via [Sonoff.SetAuth](../Components/Sonoff.md#sonoffsetauth). curl will automatically complete the 401 challenge-response flow and retry the request.
 
 ### WebSocket Authentication
 
@@ -161,6 +161,8 @@ The `auth` field should contain the following parameters:
     + `ha1`: `SHA256(admin:<realm>:<password>)`, see [HA1 Calculation](#ha1-calculation)
     + `ha2`: `SHA256(<method1>:<method2>)`, e.g. for method `Sonoff.GetConfig`, method1=`Sonoff`, method2=`GetConfig`
 + `algorithm`: string, fixed to `SHA-256`
+
+> Note: The `ha2` of the `auth` field is computed using `SHA256(<method1>:<method2>)`, which differs from the RFC 7616 standard (`SHA256(method:uri)`). Generic digest authentication libraries usually cannot be used directly to compute the `auth` field for WebSocket; please implement it yourself as described above, see the code examples below. For the HTTP channel, standard clients such as `curl --digest` work as-is.
 
 ## Code Examples
 ### HTTP Request Example

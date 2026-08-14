@@ -10,7 +10,7 @@ Supports streaming debug logs from the device via WebSocket and MQTT for diagnos
 
 ### Method 1: WebSocket Debug Logging
 
-1. Call [System.SetConfig](../Components/System#systemsetconfig) to enable WebSocket debug output:
+1. Call [System.SetConfig](../Components/System.md#systemsetconfig) to enable WebSocket debug output:
 
 ```json
 {
@@ -35,13 +35,13 @@ websocat ws://${SONOFF}/debug/log
 
 3. Logs begin streaming in real time. After use, set `websocket_enable` to `false` to disable.
 
-    The current status can be viewed via [System.GetConfig](../Components/System#systemgetconfig).
+    The current status can be viewed via [System.GetConfig](../Components/System.md#systemgetconfig).
 
 ### Method 2: MQTT Debug Logging
 
-1. Ensure the device is properly connected to the MQTT Broker ([MQTT Configuration](../Components/MQTT)).
+1. Ensure the device is properly connected to the MQTT Broker ([MQTT Configuration](../Components/MQTT.md)).
 
-2. Call [MQTT.SetConfig](../Components/MQTT#mqttsetconfig) to enable MQTT debug output:
+2. Call [MQTT.SetConfig](../Components/MQTT.md#mqttsetconfig) to enable MQTT debug output:
 
 ```json
 {
@@ -83,7 +83,7 @@ Example:
 
 ```log
 [SWITCH] id=1 state=on trigger=button
-[RPC] handle Switch.GetConfig form ws
+[RPC] handle Switch.GetConfig from ws
 [SWITCH] id=1 state=off trigger=button
 [MQTT] connected to 192.168.50.190:1883
 [RPC] handle Switch.Set form mqtt
@@ -104,6 +104,6 @@ Logs are streamed as JSON objects, each containing the following fields:
 
 ```json
 {"seq":32,"ts":1786517430000,"level":3,"data":"[SWITCH] id=1 state=on trigger=input"}
-{"seq":33,"ts":1786517430000,"level":3,"data":"[RPC] handle Switch.GetConfig form ws"}
-{"seq":34,"ts":1786517430000,"level":3,"data":"[RPC] handle Switch.GetStatus form ws"}
+{"seq":33,"ts":1786517430000,"level":3,"data":"[RPC] handle Switch.GetConfig from ws"}
+{"seq":34,"ts":1786517430000,"level":3,"data":"[RPC] handle Switch.GetStatus from ws"}
 ```

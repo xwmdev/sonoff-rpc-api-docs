@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Sonoff
 
 The Sonoff component is common to all devices and is used for device management.
@@ -48,12 +52,12 @@ Configure the device.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| config | object | Device configuration object. See config for details |
+| config | object | Required. Device configuration object. See config for details |
 
 
 **Response**
 
-For the response content, please refer to the response frame.
+Returns an empty object `{}` on success (response frame structure: [RPC Protocol](../General/RPCProtocol.md#response-frame)).
 
 ### Sonoff.GetConfig
 Get device configuration.
@@ -76,14 +80,14 @@ Set authentication parameters.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| user | string | Username. Fixed as: `admin` |
-| realm | string | Device ID. Use the id field obtained from the Sonoff.GetDeviceInfo method |
-| ha1 | string or null | `"user:realm:password"` encoded as SHA256. |
+| user | string | Required. Username. Fixed as: `admin` |
+| realm | string | Required. Device ID. Use the id field obtained from the Sonoff.GetDeviceInfo method |
+| ha1 | string or null | Required. `"user:realm:password"` encoded as SHA256. |
 
 
 **Response**
 
-For the response content, please refer to the response frame.
+Returns an empty object `{}` on success (response frame structure: [RPC Protocol](../General/RPCProtocol.md#response-frame)).
 
 ### Sonoff.ReSetAuth
 Reset authentication parameters (reset password).
@@ -96,14 +100,14 @@ After the user enters and confirms a new password, the frontend initiates this r
 
 | Property | Type | Description |
 | --- | --- | --- |
-| user | string | Username. Fixed as: `admin` |
+| user | string | Required. Username. Fixed as: `admin` |
 | realm | string | Device ID |
-| ha1 | string | `"user:realm:password"` encoded as SHA256. |
+| ha1 | string | Required. `"user:realm:password"` encoded as SHA256. |
 
 
 **Response**
 
-For the response content, please refer to the response frame.
+Returns an empty object `{}` on success (response frame structure: [RPC Protocol](../General/RPCProtocol.md#response-frame)).
 
 ### Sonoff.ForgetAuth
 Forget password (requires physical operation for authorization).
@@ -114,12 +118,12 @@ This command does not require interface authentication.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| state | string |  waiting, indicates waiting for double-click to confirm password reset<br/> done, indicates completion. The timeout period is a fixed device value of 10 seconds and is not configurable. |
+| state | string | Required. `waiting`: indicates waiting for double-click to confirm password reset<br/>`done`: indicates completion. The timeout period is a fixed device value of 10 seconds and is not configurable. |
 
 
 **Response**
 
-For the response content, please refer to the response frame.
+Returns an empty object `{}` on success (response frame structure: [RPC Protocol](../General/RPCProtocol.md#response-frame)).
 
 **Operation Flow**
 
@@ -177,8 +181,8 @@ Examples of the Sonoff component methods and events.
     "name": "MINI-1GSP",
     "model": "SN-ESP32C6-MINI1GSP-01",
     "id": "sonoffmini1gsp-acebe61fae74",
-    "ver": "0.0.1",
-    "ip": "192.168.50.15",
+    "ver": "0.5.0",
+    "ip": "192.168.1.100",
     "mac": "ac:eb:e6:1f:ae:74",
     "auth_en": false,
     "auth_domain": null,

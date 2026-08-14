@@ -8,7 +8,7 @@ sidebar_position: 2
 
 ## HTTP
 
-HTTP 用于一次性请求-响应调用。它不支持连接保持在线，且无法通过该通道发送和接收通知。当启用认证功能时，将通过 [HTTP 摘要认证](Authentication) 实施保护。
+HTTP 用于一次性请求-响应调用。它不支持连接保持在线，且无法通过该通道发送和接收通知。当启用认证功能时，将通过 [HTTP 摘要认证](Authentication.md) 实施保护。
 
 客户端 POST 到设备端点 `/rpc`，提供整个 JSON RPC 调用帧作为有效载荷：
 
@@ -44,7 +44,7 @@ curl -X POST -d '{"id":2, "src":"user_1", "method":"Switch.Set", "params":{"id":
 
 ## WebSocket
 
-在整个通信过程中（不仅限于单个请求-响应对），连接始终保持活跃，这与本地网页界面的使用方式一致。每个 Sonoff 设备都提供一个 WebSocket 端点，客户端可通过连接该端点与设备进行通信。此通道支持通过 [摘要认证](Authentication) 进行保护。
+在整个通信过程中（不仅限于单个请求-响应对），连接始终保持活跃，这与本地网页界面的使用方式一致。每个 Sonoff 设备都提供一个 WebSocket 端点，客户端可通过连接该端点与设备进行通信。此通道支持通过 [摘要认证](Authentication.md) 进行保护。
 
 WebSocket 通道的服务地址为 `ws://${SONOFF}/rpc`。客户端必须至少发送一个包含有效 `src` 字段的请求帧，才能接收来自设备的通知。
 
@@ -53,7 +53,7 @@ WebSocket 通道的服务地址为 `ws://${SONOFF}/rpc`。客户端必须至少�
 通过 WebSocket 连接到设备并调用 Switch.Set 方法：
 
 ```bash
-websocat -c ws://${SONOFF}/rpc
+websocat ws://${SONOFF}/rpc
 {"id":2, "src":"user_1", "method":"Switch.Set", "params":{"id":1, "on":true}}
 ```
 

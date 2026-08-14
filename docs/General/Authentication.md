@@ -23,13 +23,13 @@ sidebar_position: 3
 
 ## 设置密码
 
-首次使用设备时(未配置登录密码)，必须先通过 [Sonoff.SetAuth](../Components/Sonoff#sonoffsetauth) 设置密码。流程如下：
+首次使用设备时(未配置登录密码)，必须先通过 [Sonoff.SetAuth](../Components/Sonoff.md#sonoffsetauth) 设置密码。流程如下：
 
-1. 调用 [Sonoff.GetDeviceInfo](../Components/Sonoff#sonoffgetdeviceinfo) 获取设备信息，确认 `initial_password` 字段：
+1. 调用 [Sonoff.GetDeviceInfo](../Components/Sonoff.md#sonoffgetdeviceinfo) 获取设备信息，确认 `initial_password` 字段：
    + `false`：尚未设置密码，需执行第 2 步
    + `true`：已设置过密码，可直接进入[认证流程](#认证流程)
 
-2. 调用 [Sonoff.SetAuth](../Components/Sonoff#sonoffsetauth) 设置密码，传入参数：
+2. 调用 [Sonoff.SetAuth](../Components/Sonoff.md#sonoffsetauth) 设置密码，传入参数：
    + `user`：固定为 `admin`
    + `realm`：设备 ID，从第 1 步获取
    + `ha1`：`SHA256(admin:<设备ID>:<密码>)` ，计算方式见 [HA1 计算方法](#ha1-计算方法)
@@ -108,7 +108,7 @@ curl -X POST -d '{"id":1,"src":"user_1","method":"Sonoff.GetConfig"}' \
 }
 ```
 
-> 提示：`--digest` 中的 `password` 即通过 [Sonoff.SetAuth](../Components/Sonoff#sonoffsetauth) 设置的密码。curl 会自动完成 401 质询-应答流程并重试请求。
+> 提示：`--digest` 中的 `password` 即通过 [Sonoff.SetAuth](../Components/Sonoff.md#sonoffsetauth) 设置的密码。curl 会自动完成 401 质询-应答流程并重试请求。
 
 ### WebSocket 身份认证
 
@@ -161,6 +161,8 @@ auth 字段内应包含以下几个参数：
     + `ha1`：`SHA256(admin:<realm>:<密码>)`，见 [HA1 计算方法](#ha1-计算方法)
     + `ha2`：`SHA256(<method1>:<method2>)`，如方法 `Sonoff.GetConfig` 时 method1=`Sonoff`，method2=`GetConfig`
 + `algorithm`：string，固定为 `SHA-256`
+
+> **注意：** `auth` 字段的 `ha2` 使用 `SHA256(<method1>:<method2>)` 计算，与 RFC 7616 标准（`SHA256(method:uri)`）不同。通用摘要认证库通常无法直接用于计算 WebSocket 的 `auth` 字段，请按上文说明自行实现，参见下方代码示例。HTTP 通道使用 `curl --digest` 等标准客户端即可。
 
 ## 代码示例
 ### HTTP 请求示例

@@ -1,3 +1,7 @@
+---
+sidebar_position: 8
+---
+
 # MQTT
 
 The MQTT component provides third-party MQTT Broker connection, status publishing, remote control, TLS certificate management, and runtime status query services, and can enable Home Assistant MQTT auto-discovery.
@@ -88,7 +92,7 @@ Upload or delete MQTT custom CA certificate PEM data. This certificate is used w
 
 | Property | Type | Description |
 | --- | --- | --- |
-| name | string | Filename, cannot be empty, maximum 64 bytes |
+| name | string | Required. Filename, cannot be empty, maximum 64 bytes |
 | data | string or null | PEM content. Passing `null` deletes the certificate |
 | append | boolean | Whether to append as a sub-packet. `true`: append; `false` or omitted: end of packet and save |
 
@@ -109,7 +113,7 @@ Upload or delete MQTT TLS client certificate PEM data. Used for Brokers that req
 
 | Property | Type | Description |
 | --- | --- | --- |
-| name | string | Filename, cannot be empty, maximum 64 bytes |
+| name | string | Required. Filename, cannot be empty, maximum 64 bytes |
 | data | string or null | PEM content. Passing `null` deletes the certificate |
 | append | boolean | Whether to append as a sub-packet. `true`: append; `false` or omitted: end of packet and save |
 
@@ -130,7 +134,7 @@ Upload or delete MQTT TLS client private key PEM data. Used for Brokers that req
 
 | Property | Type | Description |
 | --- | --- | --- |
-| name | string | Filename, cannot be empty, maximum 64 bytes |
+| name | string | Required. Filename, cannot be empty, maximum 64 bytes |
 | data | string or null | PEM content. Passing `null` deletes the private key |
 | append | boolean | Whether to append as a sub-packet. `true`: append; `false` or omitted: end of packet and save |
 
