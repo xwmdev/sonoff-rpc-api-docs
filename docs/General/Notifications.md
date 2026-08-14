@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # 通知
 
-Sonoff 组件通过 `NotifyStatus` 和 `NotifyEvent` 两种方法支持两种类型的通知。通知帧的结构在 [RPC 协议](RPCProtocol#通知帧)页面中有详细描述。关于各通道发送通知的更多信息，请参见 [RPC 通道](RPCChannels)页面。
+Sonoff 组件通过 `NotifyStatus` 和 `NotifyEvent` 两种方法支持两种类型的通知。通知帧的结构在 [RPC 协议](RPCProtocol.md#通知帧)页面中有详细描述。关于各通道发送通知的更多信息，请参见 [RPC 通道](RPCChannels.md)页面。
 
 简要说明：
 
@@ -21,8 +21,8 @@ Sonoff 组件通过 `NotifyStatus` 和 `NotifyEvent` 两种方法支持两种类
 
 | 属性 | 类型 | 描述 |
 | --- | --- | --- |
-| `ts` | _number_ | Unix 时间戳（UTC），单位秒 |
-| `<component>` | _object_ | 与组件状态对象结构相同。`<component>` 需替换为组件类型（例如 `cloud`、`wifi`、`mqtt`）。如果有多个该类型组件的实例，`<component>` 将替换为 `组件类型:id`（例如 `switch:1`、`input:1`） |
+| `ts` | `number` | Unix 时间戳（UTC），单位秒 |
+| `<component>` | `object` | 与组件状态对象结构相同。`<component>` 需替换为组件类型（例如 `cloud`、`wifi`、`mqtt`）。如果有多个该类型组件的实例，`<component>` 将替换为 `组件类型:id`（例如 `switch:1`、`input:1`） |
 
 这些通知的预期用途是将 `NotifyStatus` 的变更叠加到已知的状态之上，其结果应与调用全新的 `GetStatus` 得到的结果一致。
 
@@ -74,16 +74,16 @@ Sonoff 组件通过 `NotifyStatus` 和 `NotifyEvent` 两种方法支持两种类
 
 | 属性 | 类型 | 描述 |
 | --- | --- | --- |
-| `ts` | _number_ | Unix 时间戳（UTC），单位秒 |
-| `events` | _array of objects_ | 包含所有发生的事件。每个 JSON 对象描述一个事件，并根据事件类型包含不同的属性 |
+| `ts` | `number` | Unix 时间戳（UTC），单位秒 |
+| `events` | `array of object` | 包含所有发生的事件。每个 JSON 对象描述一个事件，并根据事件类型包含不同的属性 |
 
 `events` 数组中每个 JSON 对象共有以下属性：
 
 | 属性 | 类型 | 描述 |
 | --- | --- | --- |
-| `ts` | _number_ | 事件发生时的 Unix 时间戳（UTC），单位秒 |
-| `component` | _string_ | 组件 key（`组件类型[:id]`，例如 `switch:1`、`input:1`、`cloud`） |
-| `event` | _string_ | 事件名称 |
+| `ts` | `number` | 事件发生时的 Unix 时间戳（UTC），单位秒 |
+| `component` | `string` | 组件 key（`组件类型[:id]`，例如 `switch:1`、`input:1`、`cloud`） |
+| `event` | `string` | 事件名称 |
 
 部分事件还会包含 `id` 字段，表示具体组件实例。
 

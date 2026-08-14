@@ -1,3 +1,7 @@
+---
+sidebar_position: 8
+---
+
 # MQTT
 
 MQTT 组件提供第三方 MQTT Broker 连接、状态发布、远程控制、TLS 证书管理和运行状态查询服务，并可启用 Home Assistant MQTT 自动发现。
@@ -88,7 +92,7 @@ MQTT 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| name | string | 文件名称，不能为空，最长 64 字节 |
+| name | string | 必填。文件名称，不能为空，最长 64 字节 |
 | data | string or null | PEM 内容。传 `null` 表示删除该证书 |
 | append | boolean | 是否追加分包。`true`：追加；`false` 或不传：本包结束并保存 |
 
@@ -109,7 +113,7 @@ MQTT 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| name | string | 文件名称，不能为空，最长 64 字节 |
+| name | string | 必填。文件名称，不能为空，最长 64 字节 |
 | data | string or null | PEM 内容。传 `null` 表示删除该证书 |
 | append | boolean | 是否追加分包。`true`：追加；`false` 或不传：本包结束并保存 |
 
@@ -130,7 +134,7 @@ MQTT 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| name | string | 文件名称，不能为空，最长 64 字节 |
+| name | string | 必填。文件名称，不能为空，最长 64 字节 |
 | data | string or null | PEM 内容。传 `null` 表示删除该私钥 |
 | append | boolean | 是否追加分包。`true`：追加；`false` 或不传：本包结束并保存 |
 

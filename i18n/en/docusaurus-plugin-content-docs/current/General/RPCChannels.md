@@ -8,7 +8,7 @@ The device supports communication over multiple RPC channels.
 
 ## HTTP
 
-HTTP is used for one-shot request-response calls. It does not support maintaining a persistent connection, and notifications cannot be sent or received over this channel. When authentication is enabled, it is protected by [HTTP Digest Authentication](Authentication).
+HTTP is used for one-shot request-response calls. It does not support maintaining a persistent connection, and notifications cannot be sent or received over this channel. When authentication is enabled, it is protected by [HTTP Digest Authentication](Authentication.md).
 
 The client POSTs to the device endpoint `/rpc`, providing the entire JSON RPC call frame as the payload:
 
@@ -44,7 +44,7 @@ curl -X POST -d '{"id":2, "src":"user_1", "method":"Switch.Set", "params":{"id":
 
 ## WebSocket
 
-The connection remains active throughout the entire communication process (not limited to a single request-response pair), consistent with how the local web interface works. Each Sonoff device provides a WebSocket endpoint that clients can connect to for communication with the device. This channel supports protection via [Digest Authentication](Authentication).
+The connection remains active throughout the entire communication process (not limited to a single request-response pair), consistent with how the local web interface works. Each Sonoff device provides a WebSocket endpoint that clients can connect to for communication with the device. This channel supports protection via [Digest Authentication](Authentication.md).
 
 The WebSocket channel service address is `ws://${SONOFF}/rpc`. The client must send at least one request frame containing a valid `src` field in order to receive notifications from the device.
 
@@ -53,7 +53,7 @@ Example:
 Connect to the device via WebSocket and call the Switch.Set method:
 
 ```bash
-websocat -c ws://${SONOFF}/rpc
+websocat ws://${SONOFF}/rpc
 {"id":2, "src":"user_1", "method":"Switch.Set", "params":{"id":1, "on":true}}
 ```
 

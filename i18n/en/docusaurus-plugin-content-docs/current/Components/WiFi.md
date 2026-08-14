@@ -1,3 +1,7 @@
+---
+sidebar_position: 6
+---
+
 # WiFi
 
 The WiFi component provides device STA connection, AP hotspot configuration, network status queries, and nearby hotspot scanning services.
@@ -55,7 +59,7 @@ Independently set whether the device AP is enabled. This setting is not issued v
 
 | Property | Type | Description |
 | --- | --- | --- |
-| enable | boolean | `true`: enable AP; `false`: disable AP |
+| enable | boolean | Required. `true`: enable AP; `false`: disable AP |
 
 
 **Response**
@@ -70,7 +74,7 @@ Independently set whether the AP is allowed to auto-off. This setting is not iss
 
 | Property | Type | Description |
 | --- | --- | --- |
-| enable | boolean | `true`: allow auto-off of AP when no clients are connected; `false`: do not auto-off AP |
+| enable | boolean | Required. `true`: allow auto-off of AP when no clients are connected; `false`: do not auto-off AP |
 
 
 **Response**

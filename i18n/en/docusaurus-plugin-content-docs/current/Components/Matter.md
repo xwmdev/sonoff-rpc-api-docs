@@ -1,3 +1,7 @@
+---
+sidebar_position: 12
+---
+
 # Matter
 
 The Matter component manages Matter commissioning and Fabric, including querying pairing status, getting pairing codes, removing Fabrics, and opening pairing windows.
@@ -50,14 +54,14 @@ Notes:
 
 | Property | Type | Description |
 | --- | --- | --- |
-| fabric_list | array | List of Matter fabrics to remove |
+| fabric_list | array | Required. List of Matter fabrics to remove |
 
 
 For more information on the `fabric_list` property, refer to the `fabric_list` data structure.
 
 **Response**
 
-For the response content, refer to the response frame.
+Returns an empty object `{}` on success (response frame structure: [RPC Protocol](../General/RPCProtocol.md#response-frame)).
 
 
 
@@ -66,7 +70,7 @@ For the response content, refer to the response frame.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| mode | string | Pairing mode<br/>`BCM` (Basic Commissioning Mode): Opens the Matter commissioning window. |
+| mode | string | Required. Pairing mode<br/>`BCM` (Basic Commissioning Mode): Opens the Matter commissioning window. |
 
 > **BCM Concept Description:**
 >
@@ -82,7 +86,7 @@ For the response content, refer to the response frame.
 
 **Response**
 
-For the response content, refer to the response frame.
+Returns an empty object `{}` on success (response frame structure: [RPC Protocol](../General/RPCProtocol.md#response-frame)).
 
 
 
@@ -99,7 +103,7 @@ Data structures related to the Matter component.
 | max_fabrics | number | Maximum number of Matter fabrics the device supports |
 | num_fabrics | number | Number of Matter fabrics the device has already joined |
 | commissionable | boolean | true:  the device can be added to an existing fabric<br/>false: the device has already joined a fabric, or the Matter commissioning window has closed due to timeout, or the device needs to be restarted before being added to a fabric. |
-| fabric_list | object | List of Matter fabrics that have been joined |
+| fabric_list | array | List of Matter fabrics that have been joined |
 
 
 For more information on the `fabric_list` property, refer to the `fabric_list` data structure.
@@ -130,7 +134,7 @@ When the Matter component status changes, a status notification is triggered. Th
 
 | Property | Type | Description |
 | --- | --- | --- |
-| matter | object | The matter object's content is the fabric_list sub-object; see fabric_list for the detailed structure |
+| matter | object | The matter object's content is the fabric_list sub-array; see fabric_list for the detailed structure |
 
 
 
@@ -290,22 +294,22 @@ Examples of Matter component methods and events.
 
 #### Status Notification Example
 ```json
-{   
-"src": "sonoffmini1gsp-acebe61fae74",   
-"dst": "user_1",   
-"method": "NotifyStatus",   
-"params": {      
-  "ts": 1626221112,      
-  "matter": {         
-     "fabric_list":[
-        {
-          "compressed_fabric_id":"2906C488DDE90E01",
-          "vendor_id":"4742",
-          "label":"switch",
-          "create_at":"0123456789123"
-        }
-      ]
-  }   
-}
+{
+   "src": "sonoffmini1gsp-acebe61fae74",
+   "dst": "user_1",
+   "method": "NotifyStatus",
+   "params": {
+      "ts": 1626221112,
+      "matter": {
+         "fabric_list": [
+            {
+               "compressed_fabric_id": "2906C488DDE90E01",
+               "vendor_id": "4742",
+               "label": "switch",
+               "create_at": "0123456789123"
+            }
+         ]
+      }
+   }
 }
 ```

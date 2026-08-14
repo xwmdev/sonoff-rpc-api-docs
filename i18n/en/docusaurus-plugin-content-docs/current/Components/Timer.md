@@ -1,3 +1,7 @@
+---
+sidebar_position: 10
+---
+
 # Timer
 
 The Timer component is used for creating, reading, updating, and deleting various types of timers.
@@ -36,7 +40,7 @@ Update timer configurations. When multiple timer configurations need to be updat
 
 | Property | Type | Description |
 | --- | --- | --- |
-| timer_list | array of objects | Timer list, content is timer_item  |
+| timer_list | array of object | Required. Timer list, content is timer_item |
 | end | boolean | true: last request<br/>false: not the last request<br/>If the number of timers modified in one batch exceeds the device's batch value, the requester needs to send the modification requests in multiple batches. If it is the last request, the request must include "end": true. If it is not the last request, the request may include "end": false, or the field may be absent. |
 
 
@@ -56,14 +60,14 @@ Query timers.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| index | number | Starting timer index for the query, range: 0 ~ maximum number of timers - 1 |
+| index | number | Required. Starting timer index for the query, range: 0 ~ maximum number of timers - 1 |
 
 
 **Response**
 
 | Property | Type | Description |
 | --- | --- | --- |
-| timer_list | array of objects | Timer list, content is timer_item  |
+| timer_list | array of object | Required. Timer list, content is timer_item |
 | revision | string | Timer revision number |
 | next | number | Next timer index to query<br/>-1 if all timers have been queried |
 

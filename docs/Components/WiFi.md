@@ -1,3 +1,7 @@
+---
+sidebar_position: 6
+---
+
 # WiFi
 
 WiFi 组件提供设备 STA 接入、AP 热点配置、网络状态查询和附近热点扫描服务。
@@ -55,7 +59,7 @@ AP 的三类配置必须通过三条独立协议设置：
 
 | Property | Type | Description |
 | --- | --- | --- |
-| enable | boolean | `true`：启动 AP；`false`：关闭 AP |
+| enable | boolean | 必填。`true`：启动 AP；`false`：关闭 AP |
 
 
 **响应**
@@ -70,7 +74,7 @@ AP 的三类配置必须通过三条独立协议设置：
 
 | Property | Type | Description |
 | --- | --- | --- |
-| enable | boolean | `true`：无客户端连接时允许自动关闭 AP；`false`：不自动关闭 AP |
+| enable | boolean | 必填。`true`：无客户端连接时允许自动关闭 AP；`false`：不自动关闭 AP |
 
 
 **响应**

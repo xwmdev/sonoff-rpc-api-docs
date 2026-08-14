@@ -1,4 +1,8 @@
-﻿# Switch
+---
+sidebar_position: 2
+---
+
+# Switch
 Switch 组件用于管理开关（继电器）的配置与状态。
 
 | Method | Description |
@@ -23,15 +27,15 @@ Switch 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | 开关id<br/>取值范围：1 ~ max (不同的产品最大输入输出数量max取值不同) |
-| config | object | 开关配置 |
+| id | number | 必填。开关id<br/>取值范围：1 ~ max (不同的产品最大输入输出数量max取值不同) |
+| config | object | 必填。开关配置 |
 
 
 更多关于 `config` 属性的内容，请参阅 `config` 数据结构。
 
 **响应**
 
-响应内容请参考应答帧。
+成功时返回空对象 `{}`（应答帧结构见 [RPC 协议](../General/RPCProtocol.md#应答帧)）。
 
 
 
@@ -42,7 +46,7 @@ Switch 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | 开关id<br/>取值范围：1 ~ max (不同的产品最大输入输出数量max取值不同) |
+| id | number | 必填。开关id<br/>取值范围：1 ~ max (不同的产品最大输入输出数量max取值不同) |
 
 
 **响应**
@@ -58,13 +62,13 @@ Switch 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | 开关id<br/>取值范围：1 ~ max (不同的产品最大输入输出数量max取值不同) |
-| on | boolean | 开关状态<br/>true: 打开<br/>false: 关闭 |
+| id | number | 必填。开关id<br/>取值范围：1 ~ max (不同的产品最大输入输出数量max取值不同) |
+| on | boolean | 必填。开关状态<br/>true: 打开<br/>false: 关闭 |
 
 
 **响应**
 
-响应内容请参考应答帧。
+成功时返回空对象 `{}`（应答帧结构见 [RPC 协议](../General/RPCProtocol.md#应答帧)）。
 
 
 
@@ -75,12 +79,12 @@ Switch 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | 开关id<br/>取值范围：1 ~ max (不同的产品最大输入输出数量max取值不同) |
+| id | number | 必填。开关id<br/>取值范围：1 ~ max (不同的产品最大输入输出数量max取值不同) |
 
 
 **响应**
 
-响应内容请参考应答帧。
+成功时返回空对象 `{}`（应答帧结构见 [RPC 协议](../General/RPCProtocol.md#应答帧)）。
 
 
 
@@ -91,14 +95,14 @@ Switch 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | 开关id<br/>取值范围：1 ~ max (不同的产品最大输入输出数量max取值不同) |
+| id | number | 必填。开关id<br/>取值范围：1 ~ max (不同的产品最大输入输出数量max取值不同) |
 
 
 **响应**
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | 开关id<br/>取值范围：1 ~ max (不同的产品最大输入输出数量max取值不同) |
+| id | number | 必填。开关id<br/>取值范围：1 ~ max (不同的产品最大输入输出数量max取值不同) |
 | on | boolean | 开关状态<br/>true: 打开<br/>false: 关闭 |
 
 
@@ -165,10 +169,10 @@ Switch 组件相关的数据结构如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | 开关id<br/>取值范围：1 ~ max (不同的产品最大输入输出数量max取值不同) |
+| id | number | 必填。开关id<br/>取值范围：1 ~ max (不同的产品最大输入输出数量max取值不同) |
 | on | boolean | 开关状态<br/>true: 打开<br/>false: 关闭 |
-| trigger_type | string | 触发源<br/>button: 设备按钮<br/>input： 外接开关<br/>fastgo: fastgo遥控器<br/>timer: 定时器<br/>startup:通电反应<br/>pulse:点动<br/>fastScene:自动断电（快速场景）<br/>Overcurrent protection: 过流保护<br/>Overpower protection: 过载保护<br/>Overvoltage protection: 过压保护<br/>Undervoltage protection: 欠压保护<br/>overheat protection:过热保护<br/>Auto Recovery：自动恢复<br/>eWeLink<br/>Matter<br/>Mqtt<br/>websocket<br/>http |
-| ts | number | 操作时间<br/>时间戳，单位ms |
+| trigger_type | string | 触发源<br/>`button`：设备按钮<br/>`input`：外接开关<br/>`fastgo`：fastgo 遥控器<br/>`timer`：定时器<br/>`startup`：通电反应<br/>`pulse`：点动<br/>`fastScene`：自动断电（快速场景）<br/>`Overcurrent protection`：过流保护<br/>`Overpower protection`：过载保护<br/>`Overvoltage protection`：过压保护<br/>`Undervoltage protection`：欠压保护<br/>`overheat protection`：过热保护<br/>`Auto Recovery`：自动恢复<br/>`eWeLink`：eWeLink<br/>`Matter`：Matter<br/>`Mqtt`：MQTT<br/>`websocket`：WebSocket<br/>`http`：HTTP |
+| ts | number | 操作时间<br/>Unix 时间戳，单位秒 |
 
 
 
@@ -224,7 +228,7 @@ Switch 组件状态变化时，将触发状态通知。携带数据如下：
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | 开关id<br/>取值范围：1 ~ max (不同的产品最大输入输出数量max取值不同) |
+| id | number | 必填。开关id<br/>取值范围：1 ~ max (不同的产品最大输入输出数量max取值不同) |
 | on | boolean | 开关状态<br/>true: 打开<br/>false: 关闭 |
 
 

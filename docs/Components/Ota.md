@@ -1,3 +1,7 @@
+---
+sidebar_position: 11
+---
+
 # Ota
 
 Ota 组件提供固件更新状态查询、自动更新时段配置和 OTA 升级服务。

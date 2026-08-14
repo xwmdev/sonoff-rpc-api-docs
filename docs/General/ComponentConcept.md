@@ -13,13 +13,13 @@ sidebar_position: 4
 `<组件名>.GetStatus` 方法返回一个特定于所选组件的对象。如果设备中有多个该组件的实例，则需要传入 `id` 参数。否则，`<组件名>.GetStatus` 不需要参数。例如，要获取 `id=1` 的 Switch 实例状态：
 
 ```
-curl -X POST -d '{"id":1, "method":"Switch.GetStatus", "params":{"id":1}}' http://${SONOFF}/rpc
+curl -X POST -d '{"id":1, "src":"user_1", "method":"Switch.GetStatus", "params":{"id":1}}' http://${SONOFF}/rpc
 ```
 
 对于只有单一实例的组件（如 Cloud），请求帧无需 `id` 参数：
 
 ```
-curl -X POST -d '{"id":1, "method":"Cloud.GetStatus"}' http://${SONOFF}/rpc
+curl -X POST -d '{"id":1, "src":"user_1", "method":"Cloud.GetStatus"}' http://${SONOFF}/rpc
 ```
 
 ## 配置(Configuration)
@@ -31,7 +31,7 @@ curl -X POST -d '{"id":1, "method":"Cloud.GetStatus"}' http://${SONOFF}/rpc
 与 `<组件名>.GetStatus` 类似，如果设备中有多个组件实例，`<组件名>.GetConfig` 需要传入 `id` 参数。否则，不需要参数。响应将包含配置结构。
 
 ```
-curl -X POST -d '{"id":1, "method":"Switch.GetConfig", "params":{"id":1}}' http://${SONOFF}/rpc
+curl -X POST -d '{"id":1, "src":"user_1", "method":"Switch.GetConfig", "params":{"id":1}}' http://${SONOFF}/rpc
 ```
 
 ### `<组件名>.SetConfig`
@@ -41,5 +41,5 @@ curl -X POST -d '{"id":1, "method":"Switch.GetConfig", "params":{"id":1}}' http:
 将 id=1 的 Switch 组件通电反应设置为上电保持：
 
 ```
-curl -X POST -d '{"id":1, "method":"Switch.SetConfig", "params":{"id":1, "config":{"startup":{"startup":"stay"}}}}' http://${SONOFF}/rpc
+curl -X POST -d '{"id":1, "src":"user_1", "method":"Switch.SetConfig", "params":{"id":1, "config":{"startup":{"startup":"stay"}}}}' http://${SONOFF}/rpc
 ```

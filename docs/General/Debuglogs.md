@@ -10,7 +10,7 @@ sidebar_position: 6
 
 ### 方式一：WebSocket 调试日志
 
-1. 调用 [System.SetConfig](../Components/System#systemsetconfig) 启用 WebSocket 调试输出：
+1. 调用 [System.SetConfig](../Components/System.md#systemsetconfig) 启用 WebSocket 调试输出：
 
 ```json
 {
@@ -35,13 +35,13 @@ websocat ws://${SONOFF}/debug/log
 
 3. 日志开始实时流式输出。使用完毕后，将 `websocket_enable` 设为 `false` 即可关闭。
 
-   当前状态可通过 [System.GetConfig](../Components/System#systemgetconfig) 查看。
+   当前状态可通过 [System.GetConfig](../Components/System.md#systemgetconfig) 查看。
 
 ### 方式二：MQTT 调试日志
 
-1. 确保设备已正确连接 MQTT Broker（[MQTT 配置说明](../Components/MQTT)）。
+1. 确保设备已正确连接 MQTT Broker（[MQTT 配置说明](../Components/MQTT.md)）。
 
-2. 调用 [MQTT.SetConfig](../Components/MQTT#mqttsetconfig) 启用 MQTT 调试输出：
+2. 调用 [MQTT.SetConfig](../Components/MQTT.md#mqttsetconfig) 启用 MQTT 调试输出：
 
 ```json
 {
@@ -83,10 +83,10 @@ mosquitto_sub -h ${MQTT_SERVER} -p ${MQTT_PORT} -t sonoffmini1gsp-acebe61fae74/d
 
 ```log
 [SWITCH] id=1 state=on trigger=button
-[RPC] handle Switch.GetConfig form ws
+[RPC] handle Switch.GetConfig from ws
 [SWITCH] id=1 state=off trigger=button
 [MQTT] connected to 192.168.50.190:1883
-[RPC] handle Switch.Set form mqtt
+[RPC] handle Switch.Set from mqtt
 ```
 
 ## WebSocket日志
@@ -104,6 +104,6 @@ mosquitto_sub -h ${MQTT_SERVER} -p ${MQTT_PORT} -t sonoffmini1gsp-acebe61fae74/d
 
 ```json
 {"seq":32,"ts":1786517430000,"level":3,"data":"[SWITCH] id=1 state=on trigger=input"}
-{"seq":33,"ts":1786517430000,"level":3,"data":"[RPC] handle Switch.GetConfig form ws"}
-{"seq":34,"ts":1786517430000,"level":3,"data":"[RPC] handle Switch.GetStatus form ws"}
+{"seq":33,"ts":1786517430000,"level":3,"data":"[RPC] handle Switch.GetConfig from ws"}
+{"seq":34,"ts":1786517430000,"level":3,"data":"[RPC] handle Switch.GetStatus from ws"}
 ```

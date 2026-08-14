@@ -1,4 +1,8 @@
-﻿# Timer
+---
+sidebar_position: 10
+---
+
+# Timer
 
 Timer 组件用于管理各类定时器的增删改查。
 
@@ -36,7 +40,7 @@ Timer 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| timer_list | array of objects | 定时器列表，内容为 timer_item  |
+| timer_list | array of object | 必填。定时器列表，内容为 timer_item |
 | end | boolean | true: 最后一次请求<br/>false: 非最后一次请求<br/>如果一次修改的定时器数量超过了设备的 batch 值，那么 请求方需要分多次发送修改请求。如果是最后一次请求，那么请求中必须填写 "end": true。如果非最后一次请求，那么请求中可以填写"end": false，或者不存在该字段。 |
 
 
@@ -56,14 +60,14 @@ Timer 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| index | number | 开始查询的定时器序号，范围从 0~最大定时器数量-1 |
+| index | number | 必填。开始查询的定时器序号，范围从 0~最大定时器数量-1 |
 
 
 **响应**
 
 | Property | Type | Description |
 | --- | --- | --- |
-| timer_list | array of objects | 定时器列表，内容为 timer_item  |
+| timer_list | array of object | 必填。定时器列表，内容为 timer_item |
 | revision | string | 定时器版本修订号 |
 | next | number | 接下来需要查询的定时器序号<br/>如果已查询完成所有定时器则为-1 |
 

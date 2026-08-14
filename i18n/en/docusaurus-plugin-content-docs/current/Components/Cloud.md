@@ -1,3 +1,7 @@
+---
+sidebar_position: 7
+---
+
 # Cloud
 
 The Cloud component manages the eWeLink cloud connection, including enabling or disabling cloud functionality, querying cloud online status, and QR code pairing.
@@ -20,12 +24,12 @@ Enable or disable the eWeLink cloud connection.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| enable | boolean | true: enable cloud connection<br/>false: disable cloud connection |
+| enable | boolean | Required. true: enable cloud connection<br/>false: disable cloud connection |
 
 
 **Response**
 
-Refer to the response frame.
+Returns an empty object `{}` on success (response frame structure: [RPC Protocol](../General/RPCProtocol.md#response-frame)).
 
 ### Cloud.GetConfig
 Get the current cloud connection configuration.

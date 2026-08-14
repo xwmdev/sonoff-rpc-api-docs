@@ -1,4 +1,8 @@
-﻿# Input
+---
+sidebar_position: 3
+---
+
+# Input
 
 Input 组件用于配置外接开关，以适配自锁开关、瞬态开关等不同类型的外接开关。
 
@@ -20,15 +24,15 @@ Input 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | 输入通道id<br/>取值范围：1 ~ max (不同的产品最大输入通道数量max取值不同) |
-| config | object | 输入通道配置 |
+| id | number | 必填。输入通道id<br/>取值范围：1 ~ max (不同的产品最大输入通道数量max取值不同) |
+| config | object | 必填。输入通道配置 |
 
 
 更多关于 `config` 属性的内容，请参阅 `config` 数据结构。
 
 **响应**
 
-响应内容请参考应答帧。
+成功时返回空对象 `{}`（应答帧结构见 [RPC 协议](../General/RPCProtocol.md#应答帧)）。
 
 
 
@@ -37,7 +41,7 @@ Input 组件支持的方法如下。
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | 输入通道id<br/>取值范围：1 ~ max (不同的产品最大输入通道数量max取值不同) |
+| id | number | 必填。输入通道id<br/>取值范围：1 ~ max (不同的产品最大输入通道数量max取值不同) |
 
 
 **响应**

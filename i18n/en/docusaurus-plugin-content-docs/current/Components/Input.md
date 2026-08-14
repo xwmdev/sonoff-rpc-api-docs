@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Input
 
 The Input component is used to configure external switches to accommodate different types of external switches such as latching switches and momentary switches.
@@ -20,15 +24,15 @@ Methods supported by the Input component.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | Input channel ID<br/>Value range: 1 ~ max (max varies by product maximum input channel count) |
-| config | object | Input channel configuration |
+| id | number | Required. Input channel ID<br/>Value range: 1 ~ max (max varies by product maximum input channel count) |
+| config | object | Required. Input channel configuration |
 
 
 For more information on the `config` property, refer to the `config` data structure.
 
 **Response**
 
-For the response content, refer to the response frame.
+Returns an empty object `{}` on success (response frame structure: [RPC Protocol](../General/RPCProtocol.md#response-frame)).
 
 
 
@@ -37,7 +41,7 @@ For the response content, refer to the response frame.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | Input channel ID<br/>Value range: 1 ~ max (max varies by product maximum input channel count) |
+| id | number | Required. Input channel ID<br/>Value range: 1 ~ max (max varies by product maximum input channel count) |
 
 
 **Response**

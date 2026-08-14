@@ -31,11 +31,11 @@ A request frame is a JSON object containing the following properties:
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `jsonrpc` | _string_ | _2.0_. The jsonrpc version used. **May be omitted** |
-| `id` | _number or string_ | Identifier for this request, used to match the response frame. **Required** |
-| `src` | _string_ | Name of the request source (you can choose any string to identify yourself as the request source). **Required** |
-| `method` | _string_ | Name of the procedure to invoke. **Required** |
-| `params` | _object_ | Parameters required by the method (if any). **Optional** |
+| `jsonrpc` | `string` | `2.0`. The jsonrpc version used. **May be omitted** |
+| `id` | `number or string` | Identifier for this request, used to match the response frame. **Required** |
+| `src` | `string` | Name of the request source (you can choose any string to identify yourself as the request source). **Required** |
+| `method` | `string` | Name of the procedure to invoke. **Required** |
+| `params` | `object` | Parameters required by the method (if any). **Optional** |
 
 Example 1:
 
@@ -75,11 +75,11 @@ A response frame is a JSON object containing the following properties:
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `id` | _number or string_ | Communication identifier |
-| `src` | _string_ | Name of the response source |
-| `dst` | _string_ | Destination name (i.e. the source of the request) |
-| `result` | _object_ | Result of the procedure invocation, returned on success. `result` and `error` are mutually exclusive |
-| `error` | _object_ | Contains a description of the error that occurred, returned on failure. `result` and `error` are mutually exclusive. See [Common Error Codes](ErrorCode) for more error codes |
+| `id` | `number or string` | Communication identifier |
+| `src` | `string` | Name of the response source |
+| `dst` | `string` | Destination name (i.e. the source of the request) |
+| `result` | `object` | Result of the procedure invocation, returned on success. `result` and `error` are mutually exclusive |
+| `error` | `object` | Contains a description of the error that occurred, returned on failure. `result` and `error` are mutually exclusive. See [Common Error Codes](ErrorCode.md) for more error codes |
 
 Example 1:
 
@@ -116,10 +116,10 @@ A notification frame is a JSON object, similar to a request but not expecting a 
 
 | Property | Type | Description |
 | --- | --- | --- |
-| `src` | _string_ | Name of the notification source. **Required** |
-| `dst` | _string_ | Destination name. **Required** |
-| `method` | _string_ | Method being called. **Required** |
-| `params` | _object_ | Parameters of the notification. **Required** |
+| `src` | `string` | Name of the notification source. **Required** |
+| `dst` | `string` | Destination name. **Required** |
+| `method` | `string` | Method being called. **Required** |
+| `params` | `object` | Parameters of the notification. **Required** |
 
 Example 1:
 

@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Switch
 The Switch component is used to manage the configuration and status of switches (relays).
 
@@ -23,15 +27,15 @@ Configure the switch, including power-on behavior and pulse settings.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | Switch id<br/>Range: 1 ~ max (max varies by product depending on the maximum number of inputs/outputs) |
-| config | object | Switch configuration |
+| id | number | Required. Switch id<br/>Range: 1 ~ max (max varies by product depending on the maximum number of inputs/outputs) |
+| config | object | Required. Switch configuration |
 
 
 For more details about the `config` property, see the `config` data structure.
 
 **Response**
 
-For the response content, please refer to the response frame.
+Returns an empty object `{}` on success (response frame structure: [RPC Protocol](../General/RPCProtocol.md#response-frame)).
 
 
 
@@ -42,7 +46,7 @@ Get switch configuration.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | Switch id<br/>Range: 1 ~ max (max varies by product depending on the maximum number of inputs/outputs) |
+| id | number | Required. Switch id<br/>Range: 1 ~ max (max varies by product depending on the maximum number of inputs/outputs) |
 
 
 **Response**
@@ -58,13 +62,13 @@ Set the switch state (on or off).
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | Switch id<br/>Range: 1 ~ max (max varies by product depending on the maximum number of inputs/outputs) |
-| on | boolean | Switch state<br/>true: on<br/>false: off |
+| id | number | Required. Switch id<br/>Range: 1 ~ max (max varies by product depending on the maximum number of inputs/outputs) |
+| on | boolean | Required. Switch state<br/>true: on<br/>false: off |
 
 
 **Response**
 
-For the response content, please refer to the response frame.
+Returns an empty object `{}` on success (response frame structure: [RPC Protocol](../General/RPCProtocol.md#response-frame)).
 
 
 
@@ -75,12 +79,12 @@ Toggle the switch state.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | Switch id<br/>Range: 1 ~ max (max varies by product depending on the maximum number of inputs/outputs) |
+| id | number | Required. Switch id<br/>Range: 1 ~ max (max varies by product depending on the maximum number of inputs/outputs) |
 
 
 **Response**
 
-For the response content, please refer to the response frame.
+Returns an empty object `{}` on success (response frame structure: [RPC Protocol](../General/RPCProtocol.md#response-frame)).
 
 
 
@@ -91,7 +95,7 @@ Get switch status.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | Switch id<br/>Range: 1 ~ max (max varies by product depending on the maximum number of inputs/outputs) |
+| id | number | Required. Switch id<br/>Range: 1 ~ max (max varies by product depending on the maximum number of inputs/outputs) |
 
 
 **Response**
@@ -167,8 +171,8 @@ For more details about the `pulse` property, see the `pulse` data structure.
 | --- | --- | --- |
 | id | number | Switch id<br/>Range: 1 ~ max (max varies by product depending on the maximum number of inputs/outputs) |
 | on | boolean | Switch state<br/>true: on<br/>false: off |
-| trigger_type | string | Trigger source<br/>button: device button<br/>input: external switch<br/>fastgo: fastgo remote<br/>timer: timer<br/>startup: power-on behavior<br/>pulse: pulse<br/>fastScene: auto power-off (fast scene)<br/>Overcurrent protection: overcurrent protection<br/>Overpower protection: overpower protection<br/>Overvoltage protection: overvoltage protection<br/>Undervoltage protection: undervoltage protection<br/>overheat protection: overheat protection<br/>Auto Recovery: auto recovery<br/>eWeLink<br/>Matter<br/>Mqtt<br/>websocket<br/>http |
-| ts | number | Operation time<br/>Timestamp, unit: ms |
+| trigger_type | string | Trigger source<br/>`button`: device button<br/>`input`: external switch<br/>`fastgo`: fastgo remote<br/>`timer`: timer<br/>`startup`: power-on behavior<br/>`pulse`: pulse<br/>`fastScene`: auto power-off (fast scene)<br/>`Overcurrent protection`: overcurrent protection<br/>`Overpower protection`: overpower protection<br/>`Overvoltage protection`: overvoltage protection<br/>`Undervoltage protection`: undervoltage protection<br/>`overheat protection`: overheat protection<br/>`Auto Recovery`: auto recovery<br/>`eWeLink`: eWeLink<br/>`Matter`: Matter<br/>`Mqtt`: MQTT<br/>`websocket`: WebSocket<br/>`http`: HTTP |
+| ts | number | Operation time<br/>Unix timestamp, in seconds |
 
 
 

@@ -1,3 +1,7 @@
+---
+sidebar_position: 9
+---
+
 # WebSocket
 
 The WebSocket component is used to control enabling and disabling outbound WebSocket, and to get the connection status of outbound WebSocket.
@@ -19,14 +23,14 @@ Update WebSocket component configuration.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| config | object | Configuration parameters |
+| config | object | Required. Configuration parameters |
 
 
 For more details about the `config` property, see the `config` data structure.
 
 **Response**
 
-Please refer to the response frame.
+Returns an empty object `{}` on success (response frame structure: [RPC Protocol](../General/RPCProtocol.md#response-frame)).
 
 ### WebSocket.GetConfig
 Get WebSocket component configuration.

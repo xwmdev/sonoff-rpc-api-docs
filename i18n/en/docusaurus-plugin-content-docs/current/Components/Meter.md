@@ -1,3 +1,7 @@
+---
+sidebar_position: 4
+---
+
 # Meter
 
 The Meter component manages power metering, supporting configuration updates and queries, real-time electrical parameter queries, and historical energy data retrieval.
@@ -26,13 +30,13 @@ Update the meter configuration, including reverse metering display and electrici
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | Component instance ID |
-| config | object | Configuration parameters object. See the config data structure for details |
+| id | number | Required. Component instance ID |
+| config | object | Required. Configuration parameters object. See the config data structure for details |
 
 
 **Response**
 
-For the response content, refer to the response frame.
+Returns an empty object `{}` on success (response frame structure: [RPC Protocol](../General/RPCProtocol.md#response-frame)).
 
 ### Meter.GetConfig
 Get the meter configuration.
@@ -43,7 +47,7 @@ Get the meter configuration.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | Component instance ID |
+| id | number | Required. Component instance ID |
 
 
 **Response**
@@ -63,7 +67,7 @@ Get real-time electrical parameters and cumulative energy data.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | Component instance ID |
+| id | number | Required. Component instance ID |
 
 
 
@@ -100,14 +104,14 @@ Reset counters, clearing energy data, electricity cost, and historical data.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | Component instance ID |
+| id | number | Required. Component instance ID |
 
 
 
 
 **Response**
 
-For the response content, refer to the response frame.
+Returns an empty object `{}` on success (response frame structure: [RPC Protocol](../General/RPCProtocol.md#response-frame)).
 
 ### Meter.GetRecords
 Get historical data records (by hour, day, or month dimension).
@@ -118,7 +122,7 @@ Get historical data records (by hour, day, or month dimension).
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | Component instance ID |
+| id | number | Required. Component instance ID |
 | type | string | Record type. Options: `hour` (hourly), `day` (daily), `month` (monthly) |
 | start_time | string | Start date. Format: `YYYY-MM-DD` (year-month-day).<br/>- When `type` is `hour`, only `start_time` is used, returning that day's hourly energy consumption;<br/>- When `type` is `month`, the day portion of the date is ignored |
 | end_time | string | End date. Format: `YYYY-MM-DD` (year-month-day).<br/>- When `type` is `hour`, only `start_time` is used, returning that day's hourly energy consumption;<br/>- When `type` is `month`, the day portion of the date is ignored |
@@ -143,7 +147,7 @@ Batch download energy consumption historical data.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | Component instance ID |
+| id | number | Required. Component instance ID |
 | type | number | Download type. `0`: download by hour, `1`: download by day |
 | offset | number | Starting index (0 means start from the most recent record) |
 | count | number | Requested count; historical data must be downloaded in packets, with a maximum of 32 per packet |
@@ -169,7 +173,6 @@ Data structures related to the Meter component.
 ### config
 | Property | Type | Description |
 | --- | --- | --- |
-| id | number | Component instance ID |
 | reversed | boolean | Reverse metering display switch. `true`: enabled, `false`: disabled. Default: disabled |
 | price_info | object | Electricity pricing configuration. See the price_info data structure for details |
 
