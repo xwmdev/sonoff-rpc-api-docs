@@ -27,7 +27,7 @@ This document describes how to monitor and control Sonoff devices through the RP
 
 ## Reading Conventions
 
-- Method names use the format `Component.Method`, for example `Switch.Set`; `GetStatus`, `GetConfig`, `SetConfig` are common base methods shared by all components.
+- Method names use the format `Component.Method`, for example `Switch.Set`; `GetStatus`, `GetConfig`, `SetConfig` are common base methods shared by most components. Refer to each component's documentation for the methods it actually supports.
 - Component documentation has a fixed structure: Feature Overview → Method List → Methods → Data Structures → Event Notifications → Status Notifications → Examples. You can jump directly to sections as needed.
 - The `auth` field may be omitted in request examples; add `auth` as described in the authentication documentation.
 

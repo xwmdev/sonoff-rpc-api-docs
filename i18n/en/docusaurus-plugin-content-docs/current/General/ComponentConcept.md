@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Component Concept
 
-A component is an encapsulated functional unit that exposes methods for communicating with the outside world. Each component has a status and a configuration. Therefore, each component supports the following methods: `<ComponentName>.GetStatus`, `<ComponentName>.GetConfig`, `<ComponentName>.SetConfig`. The behavior of these methods is consistent, differing only in the format of the configuration and status structures.
+A component is an encapsulated functional unit that exposes methods for communicating with the outside world. Each component has a status and a configuration. Most components support the following common methods: `<ComponentName>.GetStatus`, `<ComponentName>.GetConfig`, `<ComponentName>.SetConfig`. The behavior of these methods is consistent, differing only in the format of the configuration and status structures. However, not every component supports all three of these methods; for the methods actually supported, refer to the corresponding component documentation.
 
 ## Status
 

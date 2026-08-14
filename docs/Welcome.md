@@ -29,7 +29,7 @@ sidebar_position: 1
 
 ## 阅读规则
 
-- 方法名格式为 `组件.方法`，例如 `Switch.Set`；`GetStatus`、`GetConfig`、`SetConfig` 是各组件通用的基础方法。
+- 方法名格式为 `组件.方法`，例如 `Switch.Set`；`GetStatus`、`GetConfig`、`SetConfig` 是大多数组件的通用基础方法，具体支持的方法以各组件文档为准。
 - 组件文档结构固定：功能简介 → 方法列表 → 方法 → 数据结构 → 事件通知 → 状态通知 → 示例，可按需直接跳转。
 - 请求示例中可能省略 `auth` 鉴权参数字段；需按认证说明补充 `auth`。
 

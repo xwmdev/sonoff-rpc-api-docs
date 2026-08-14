@@ -8,7 +8,7 @@
     "description": "The label for category 通用说明 in sidebar docs"
   },
   "sidebar.docs.category.组件与服务": {
-    "message": "Components & Services",
+    "message": "Components",
     "description": "The label for category 组件与服务 in sidebar docs"
   },
   "sidebar.docs.category.设备": {
