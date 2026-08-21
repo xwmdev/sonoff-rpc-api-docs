@@ -60,8 +60,7 @@ const config: Config = {
     ],
   ],
 
-  // 本地搜索插件（无需外部服务，支持中文分词，兼容多语言）
-  // 索引构建在本地，站内即可全文搜索
+  // 页面访问统计：Google Analytics 4（官方插件）
   plugins: [
     [
       require.resolve('@easyops-cn/docusaurus-search-local'),
@@ -76,6 +75,24 @@ const config: Config = {
         highlightSearchTermsOnTargetPage: true,
       },
     ],
+    [
+      '@docusaurus/plugin-google-gtag',
+      {
+        trackingID: 'G-HX2LV2RGTH',
+        anonymizeIP: true,
+      },
+    ],
+  ],
+
+  // 页面访问统计：Umami Cloud（隐私友好，脚本 + 站点 ID 在 Umami 后台生成）
+  scripts: [
+    {
+      src: 'https://cloud.umami.is/script.js',
+      async: true,
+      defer: true,
+      'data-website-id': '7e607c9b-6683-4e7f-80f0-8c6108d9ccf2',
+      'data-do-not-track': 'true',
+    },
   ],
 
   themes: ['@docusaurus/theme-mermaid'],
