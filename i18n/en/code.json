@@ -360,5 +360,69 @@
   "theme.tags.tagsPageTitle": {
     "message": "Tags",
     "description": "The title of the tag list page"
+  },
+  "siteTitle": {
+    "message": "Sonoff Device API Docs",
+    "description": "Site name (used as tab title suffix)"
+  },
+  "home.title": {
+    "message": "Sonoff Device API Docs",
+    "description": "Homepage browser title"
+  },
+  "home.description": {
+    "message": "Sonoff device RPC API reference documentation, with local search and multilingual support.",
+    "description": "Homepage meta description"
+  },
+  "home.heroTitle": {
+    "message": "Sonoff Device API Docs",
+    "description": "Homepage hero title"
+  },
+  "home.heroSubtitle": {
+    "message": "Monitor and control Sonoff devices through the RPC API. Protocol reference, component APIs, device guides and examples.",
+    "description": "Homepage hero subtitle"
+  },
+  "home.readTheDocs": {
+    "message": "Read the Docs",
+    "description": "Homepage primary button"
+  },
+  "home.quickStart": {
+    "message": "Quick Start",
+    "description": "Homepage secondary button"
+  },
+  "home.learnMore": {
+    "message": "Learn more",
+    "description": "Feature card link"
+  },
+  "home.feature.quickStart.title": {
+    "message": "Quick Start",
+    "description": "Card title: Quick Start"
+  },
+  "home.feature.quickStart.description": {
+    "message": "From zero to your first controlled call: connect the device, get its IP, set a password.",
+    "description": "Card description: Quick Start"
+  },
+  "home.feature.generalProtocol.title": {
+    "message": "General Protocol",
+    "description": "Card title: General Protocol"
+  },
+  "home.feature.generalProtocol.description": {
+    "message": "JSON-RPC 2.0 protocol, HTTP / WebSocket / MQTT transport channels and authentication.",
+    "description": "Card description: General Protocol"
+  },
+  "home.feature.componentApis.title": {
+    "message": "Component APIs",
+    "description": "Card title: Component APIs"
+  },
+  "home.feature.componentApis.description": {
+    "message": "Full methods, data structures and examples for 12 components like System, WiFi, Switch and Timer.",
+    "description": "Card description: Component APIs"
+  },
+  "home.feature.deviceSupport.title": {
+    "message": "Device Support",
+    "description": "Card title: Device Support"
+  },
+  "home.feature.deviceSupport.description": {
+    "message": "Components supported by each device model, exceptions and usage notes.",
+    "description": "Card description: Device Support"
   }
 }

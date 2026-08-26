@@ -1,17 +1,71 @@
+import {execSync} from 'node:child_process';
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+// 部署地址（GitHub Pages）：https://xwmdev.github.io/sonoff-rpc-api-docs/
+const PROD_URL = 'https://xwmdev.github.io';
+const PROD_GITHUB_URL = 'https://github.com/xwmdev/sonoff-rpc-api-docs';
+
+// 自动识别部署信息，优先级：
+//   基地址：1. 显式环境变量 BASE_URL / URL（其它托管指定子路径、本地模拟子路径挂载时使用）
+//           2. GitHub Actions 注入的 GITHUB_REPOSITORY（格式 owner/repo）
+//           3. 回退为根路径 /（本地 build/serve 默认按根路径处理）
+//   GitHub 仓库链接（仅用于导航栏，不影响基地址）：GITHUB_REPOSITORY → git remote origin → 回退常量
+// 仓库名为 <user>.github.io 时视为根路径部署。
+function detectDeployment(): {url: string; baseUrl: string; githubUrl: string} {
+  const envUrl = process.env.URL;
+  const envBaseUrl = process.env.BASE_URL;
+
+  const githubRepo = process.env.GITHUB_REPOSITORY;
+  const toGithubUrl = (owner: string, repo: string) =>
+    `https://github.com/${owner}/${repo}`;
+
+  // 本地构建/serve：从 git remote origin 推导仓库链接（不影响 baseUrl）
+  const detectGithubUrlFromRemote = (): string | null => {
+    try {
+      const remote = execSync('git config --get remote.origin.url', {
+        stdio: ['ignore', 'pipe', 'ignore'],
+      })
+        .toString()
+        .trim();
+      const match = remote.match(/(?:github\.com[:/])([^/]+)\/([^/]+?)(?:\.git)?\/?$/);
+      return match ? toGithubUrl(match[1], match[2]) : null;
+    } catch {
+      return null;
+    }
+  };
+
+  const githubUrl =
+    githubRepo && githubRepo.includes('/')
+      ? toGithubUrl(githubRepo.split('/')[0], githubRepo.split('/')[1])
+      : detectGithubUrlFromRemote() ?? PROD_GITHUB_URL;
+
+  if (envBaseUrl) {
+    return {url: envUrl || PROD_URL, baseUrl: envBaseUrl, githubUrl};
+  }
+
+  if (githubRepo && githubRepo.includes('/')) {
+    const [owner, repo] = githubRepo.split('/');
+    return repo.toLowerCase().endsWith('.github.io')
+      ? {url: `https://${repo}`, baseUrl: '/', githubUrl}
+      : {url: `https://${owner}.github.io`, baseUrl: `/${repo}/`, githubUrl};
+  }
+
+  return {url: PROD_URL, baseUrl: '/', githubUrl};
+}
+
+const {url, baseUrl, githubUrl} = detectDeployment();
+
 const config: Config = {
-  title: 'Sonoff RPC API 文档',
-  tagline: 'Sonoff 设备 RPC API 接口参考文档',
+  title: 'Sonoff Device API 文档',
+  tagline: 'Sonoff 设备 API 接口参考文档',
   favicon: 'img/favicon.ico',
 
-  // GitHub Pages 部署配置：站点地址为 https://xwmdev.github.io/sonoff-rpc-api-docs/
-  url: 'https://xwmdev.github.io',
-  baseUrl: '/sonoff-rpc-api-docs/',
+  url,
+  baseUrl,
 
   // GitHub Pages 使用静态文件托管，关闭尾斜杠可生成 .html 文件并保证链接可直达
   trailingSlash: false,
@@ -102,13 +156,38 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Sonoff RPC API',
+      title: 'SONOFF',
       items: [
+        {
+          to: '/',
+          position: 'left',
+          label: '首页',
+        },
+        {
+          // 老文档站地址：https://help.sonoff.tech/docs/puU2rU4w
+          href: 'https://help.sonoff.tech/docs/puU2rU4w',
+          position: 'left',
+          label: '老文档站',
+          target: '_blank',
+        },
         {
           type: 'docSidebar',
           sidebarId: 'docs',
           position: 'left',
           label: '文档',
+        },
+        // 预留：此处可继续追加左侧导航项
+        {
+          href: 'https://sonoff.tech/',
+          position: 'right',
+          label: '公司官网',
+          target: '_blank',
+        },
+        {
+          href: githubUrl,
+          position: 'right',
+          label: 'GitHub',
+          target: '_blank',
         },
         {
           type: 'localeDropdown',
@@ -118,7 +197,7 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      copyright: `Copyright © ${new Date().getFullYear()} Sonoff RPC API Docs. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Sonoff Device API Docs. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

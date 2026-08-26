@@ -360,5 +360,69 @@
   "theme.tags.tagsPageTitle": {
     "message": "标签",
     "description": "The title of the tag list page"
+  },
+  "siteTitle": {
+    "message": "Sonoff Device API 文档",
+    "description": "站点名（用于标签页标题后缀）"
+  },
+  "home.title": {
+    "message": "Sonoff Device API 文档",
+    "description": "首页浏览器标题"
+  },
+  "home.description": {
+    "message": "Sonoff 设备 RPC API 接口参考文档，支持本地搜索与多语言。",
+    "description": "首页 meta 描述"
+  },
+  "home.heroTitle": {
+    "message": "Sonoff Device API 文档",
+    "description": "首页 hero 大标题"
+  },
+  "home.heroSubtitle": {
+    "message": "通过 RPC API 监控与控制 Sonoff 设备。协议参考、组件接口、设备指南与完整示例。",
+    "description": "首页 hero 副标题"
+  },
+  "home.readTheDocs": {
+    "message": "阅读文档",
+    "description": "首页主按钮"
+  },
+  "home.quickStart": {
+    "message": "快速开始",
+    "description": "首页次按钮"
+  },
+  "home.learnMore": {
+    "message": "了解更多",
+    "description": "卡片了解更多链接"
+  },
+  "home.feature.quickStart.title": {
+    "message": "快速开始",
+    "description": "卡片标题：快速开始"
+  },
+  "home.feature.quickStart.description": {
+    "message": "从零开始：设备联网、获取 IP、设置密码，完成第一次受控调用。",
+    "description": "卡片描述：快速开始"
+  },
+  "home.feature.generalProtocol.title": {
+    "message": "通用协议",
+    "description": "卡片标题：通用协议"
+  },
+  "home.feature.generalProtocol.description": {
+    "message": "JSON-RPC 2.0 协议、HTTP / WebSocket / MQTT 传输通道与认证机制。",
+    "description": "卡片描述：通用协议"
+  },
+  "home.feature.componentApis.title": {
+    "message": "组件接口",
+    "description": "卡片标题：组件接口"
+  },
+  "home.feature.componentApis.description": {
+    "message": "System、WiFi、Switch、Timer 等 12 个组件的完整方法、数据结构与示例。",
+    "description": "卡片描述：组件接口"
+  },
+  "home.feature.deviceSupport.title": {
+    "message": "设备支持",
+    "description": "卡片标题：设备支持"
+  },
+  "home.feature.deviceSupport.description": {
+    "message": "各款设备支持的组件清单、例外情况与使用注意事项。",
+    "description": "卡片描述：设备支持"
   }
 }
