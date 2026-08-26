@@ -92,21 +92,25 @@
   transform: translateY(-2px);
 }
 
-.features {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 3.2rem 1rem 4rem;
+/* ---------- 版块通用 ---------- */
+.section {
+  width: 100%;
+  padding: 4.5rem 1.5rem;
 }
 
+/* ---------- 能力卡片 ---------- */
 .featuresGrid {
+  max-width: 1320px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.2rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.6rem;
 }
 
 .card {
-  display: block;
-  padding: 1.6rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2.1rem 1.8rem;
   border-radius: 14px;
   border: 1px solid var(--ifm-color-emphasis-200);
   background: var(--ifm-background-surface-color);
@@ -118,26 +122,36 @@
   text-decoration: none;
   color: inherit;
   transform: translateY(-4px);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
-  border-color: var(--ifm-color-primary-lightest);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.1);
+  border-color: var(--ifm-color-primary);
 }
 
 .cardIcon {
-  font-size: 1.9rem;
-  margin-bottom: 0.7rem;
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--ifm-color-primary);
+  margin-bottom: 1.2rem;
+}
+
+[data-theme='dark'] .cardIcon {
+  background: rgba(59, 130, 246, 0.16);
 }
 
 .cardTitle {
-  font-size: 1.12rem;
-  font-weight: 650;
-  margin-bottom: 0.45rem;
+  font-size: 1.16rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 .cardDescription {
-  font-size: 0.92rem;
+  font-size: 0.94rem;
   color: var(--ifm-color-emphasis-700);
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
 }
 
@@ -145,12 +159,14 @@
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  margin-top: 0.8rem;
+  margin-top: auto;
+  padding-top: 1.2rem;
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--ifm-color-primary);
 }
 
+/* ---------- 响应式 ---------- */
 @media (max-width: 996px) {
   .hero {
     padding: 3.5rem 1rem 3rem;
@@ -158,5 +174,19 @@
 
   .heroTitle {
     font-size: 2.1rem;
+  }
+
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section {
+    padding: 3.5rem 1.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .featuresGrid {
+    grid-template-columns: 1fr;
   }
 }

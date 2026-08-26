@@ -1,10 +1,26 @@
 {
   "title": {
-    "message": "Sonoff RPC API 文档",
+    "message": "SONOFF",
     "description": "The title in the navbar"
+  },
+  "item.label.首页": {
+    "message": "首页",
+    "description": "Navbar item with label 首页"
+  },
+  "item.label.老文档站": {
+    "message": "老文档站",
+    "description": "Navbar item with label 老文档站"
   },
   "item.label.文档": {
     "message": "文档",
     "description": "Navbar item with label 文档"
+  },
+  "item.label.公司官网": {
+    "message": "公司官网",
+    "description": "Navbar item with label 公司官网"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
   }
 }
